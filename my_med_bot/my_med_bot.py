@@ -4,7 +4,7 @@
 import discord
 from med_bot import Result as medBot
 
-DISCORD_TOKEN="Nzk2NjY3ODg0NTE5Njg2MjA0.X_bQyQ.CIM7jgsKKYyrN8CsDal7HLkji4A"
+DISCORD_TOKEN=""
 DISCORD_GUILD="討論小圈圈"
 BOT_NAME = "my_med_bot"
 
