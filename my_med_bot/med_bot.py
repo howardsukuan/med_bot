@@ -55,9 +55,9 @@ except:
     from .intent import Loki_symptom
 
 
-LOKI_URL = "https://api.droidtown.co/Loki/BulkAPI/"
-USERNAME = "jacksugood@gmail.com"
-LOKI_KEY = "+J76ZGgy!ZiKV+&upFs$QPP2jnJQc!5"
+LOKI_URL = ""
+USERNAME = ""
+LOKI_KEY = ""
 # 意圖過濾器說明
 # INTENT_FILTER = []        => 比對全部的意圖 (預設)
 # INTENT_FILTER = [intentN] => 僅比對 INTENT_FILTER 內的意圖
@@ -196,7 +196,8 @@ DepartmentDICT = {
 def FindDepartment(inputSTR):
     return DepartmentDICT[inputSTR]
 
-def Result(inputLIST):
+def Result(inputSTR):
+    inputLIST = [inputSTR]
     Emergency = ["大量出血","昏迷","失去意識","沒有心跳","血流不止","停止呼吸"]
     if any (eme in inputLIST[0] for eme in Emergency):
         return "請立即撥打119掛急診"
@@ -209,9 +210,10 @@ def Result(inputLIST):
     
     
 if __name__ == "__main__":
-    inputLIST = ["早上擤鼻涕也是綠色"]
+    inputSTR = "早上擤鼻涕也是綠色"
+    inputLIST = [inputSTR]
     Emergency = ["大量出血","昏迷","失去意識","沒有心跳","血流不止","停止呼吸"]
-    if any (eme in inputLIST[0] for eme in Emergency):
+    if any (eme in inputLIST for eme in Emergency):
         print("請立即撥打119掛急診")
     else:
         resultDICT = runLoki(inputLIST)
@@ -219,5 +221,5 @@ if __name__ == "__main__":
         bodypart = resultDICT["bodypart"]
         department = FindDepartment(bodypart)
         print("可以去{dep}看診".format(dep=department))
-    print(Result(inputLIST))   
+    print(Result(inputSTR))   
         

@@ -4,8 +4,8 @@
 import discord
 from med_bot import Result as medBot
 
-DISCORD_TOKEN="Nzk2NjY3ODg0NTE5Njg2MjA0.X_bQyQ.Gd1gD-tVEhX2Olc3W88EEm7YepY"
-DISCORD_GUILD="討論小圈圈"
+DISCORD_TOKEN=""
+DISCORD_GUILD=""
 BOT_NAME = "my_med_bot"
 
 # Documention
@@ -27,9 +27,6 @@ async def on_ready():
 @client.event
 async def on_message(message):
     if "<@!{}>".format(client.user.id) in message.content:
-        if message.author == client.user:
-            return() 
-        print("message.content", message.content)
         
         if "hi!" in message.content:
             response = "我知道這很辛苦但你要加油"
