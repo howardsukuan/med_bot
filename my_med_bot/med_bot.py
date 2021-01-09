@@ -190,14 +190,26 @@ def runLoki(inputLIST):
     return resultDICT
 
 DepartmentDICT = {
-  **dict.fromkeys(["耳朵","鼻子","鼻","咽喉","顎","鼻涕"], "耳鼻喉科"), 
-  **dict.fromkeys(["肚子","腸胃"], "腸胃科")
+  **dict.fromkeys(["耳朵","鼻子","鼻","咽喉","顎","鼻涕", "喉嚨卡", "喉部", "脖子", "耳", "鼻樑", "鼻腔內"], "耳鼻喉科"), 
+  **dict.fromkeys(["肚子","腸胃", "胃"], "腸胃科"),
+  **dict.fromkeys(["嘴", "風持穴", "小腿痠", "臉頰", "屁股", "眉間", "頭", "頸部", "頸部長"], "家醫科"),
+  **dict.fromkeys(["陰部長"], "婦產科"),
+  **dict.fromkeys(["腹"], "一般內科"),
+  **dict.fromkeys(["心臟", "瓣膜", "心"], "心臟內科"),
+  **dict.fromkeys(["胸口", "胸"], "胸腔外科"),
+  **dict.fromkeys(["眼睛"], "眼科")
 }
+
+#DepartmentDICT = {
+  #**dict.fromkeys(["耳朵","鼻子","鼻","咽喉","顎","鼻涕"], "耳鼻喉科"), 
+  #**dict.fromkeys(["肚子","腸胃"], "腸胃科")
+#}
 def FindDepartment(inputSTR):
     return DepartmentDICT[inputSTR]
 
 def Result(inputSTR):
     inputLIST = [inputSTR]
+    print("debug_msg:{}".format(inputSTR))
     Emergency = ["大量出血","昏迷","失去意識","沒有心跳","血流不止","停止呼吸"]
     if any (eme in inputLIST[0] for eme in Emergency):
         return "請立即撥打119掛急診"
@@ -205,6 +217,7 @@ def Result(inputSTR):
         resultDICT = runLoki(inputLIST)
         bodypart = resultDICT["bodypart"]
         department = FindDepartment(bodypart)
+        print("debug_msg:{}".format(resultDICT))
         return "可以去{dep}看診".format(dep=department)
         
     
