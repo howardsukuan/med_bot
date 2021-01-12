@@ -214,17 +214,20 @@ def Result(inputSTR):
     if any (eme in inputLIST[0] for eme in Emergency):
         return "請立即撥打119掛急診"
     else:
-        resultDICT = runLoki(inputLIST)
-        bodypart = resultDICT["bodypart"]
-        bodypart = resultDICT["bodypart"]
-        child = resultDICT["child"]
-        if (kid in child for kid in ChildLIST):
-            response = input("請問是否為12歲(包含12)以下的小孩?填入y/n")
-            if response == "y":
-                return "可以去小兒科看診"
-            else: 
-                department = FindDepartment(bodypart)
-                return "可以去{dep}看診".format(dep=department)    
+        try:
+            resultDICT = runLoki(inputLIST)
+            bodypart = resultDICT["bodypart"]
+            bodypart = resultDICT["bodypart"]
+            child = resultDICT["child"]
+            if (kid in child for kid in ChildLIST):
+                response = input("請問是否為12歲(包含12)以下的小孩?填入y/n")
+                if response == "y":
+                    return "可以去小兒科看診"
+                else: 
+                    department = FindDepartment(bodypart)
+                    return "可以去{dep}看診".format(dep=department)
+        except:
+            return "尚未解決QQ 這部分會盡速處理！" 
     
 if __name__ == "__main__":
     inputSTR = "早上擤鼻涕也是綠色"
