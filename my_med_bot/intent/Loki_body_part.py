@@ -16,7 +16,7 @@
 
 DEBUG_body_part = True
 userDefinedDICT = {}
-
+ChildLIST =["小孩","兒子","女兒"]
 # 將符合句型的參數列表印出。這是 debug 或是開發用的。
 def debugInfo(inputSTR, utterance):
     if DEBUG_body_part:
@@ -226,5 +226,12 @@ def getResult(inputSTR, utterance, args, resultDICT):
         # write your code here
         resultDICT["bodypart"]=args[0]
         pass
+
+    if utterance == "我[兒子][肚子]不[舒服]":
+         # args [兒子, 肚子, 舒服]
+        resultDICT["child"]=args[0]
+        resultDICT["bodypart"]=args[1]
+        pass
+      
 
     return resultDICT
