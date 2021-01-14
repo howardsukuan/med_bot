@@ -190,21 +190,21 @@ def runLoki(inputLIST):
     return resultDICT
 
 DepartmentDICT = {
-  **dict.fromkeys(["耳朵","鼻子","鼻","咽喉","顎","鼻涕", "喉嚨卡", "喉部", "脖子", "耳", "鼻樑", "鼻腔內"], "耳鼻喉科"), 
+  **dict.fromkeys(["耳朵","鼻子","鼻","咽喉","顎","鼻涕", "喉嚨卡", "喉部", "脖子", "耳", "鼻樑", "鼻腔內", "耳鼻喉", "鼻炎", "打呼", "打鼾", "扁桃腺"], "耳鼻喉科"), 
   **dict.fromkeys(["肚子","腸胃", "胃"], "腸胃科"),
-  **dict.fromkeys(["嘴", "風持穴", "小腿痠", "臉頰", "屁股", "眉間", "頭", "頸部", "頸部長"], "家醫科"),
-  **dict.fromkeys(["陰部長"], "婦產科"),
+  **dict.fromkeys(["嘴", "風持穴", "小腿痠", "臉頰", "屁股", "眉間", "頭", "頸部", "頸部長", "腹瀉", "家醫", "頭痛", "頭暈", "咳嗽", "噁心"], "家醫科"),
+  **dict.fromkeys(["陰部長", "婦產", "乳房", "乳腺", "陰道"], "婦產科"),
   **dict.fromkeys(["腹"], "一般內科"),
-  **dict.fromkeys(["心臟", "瓣膜", "心"], "心臟內科"),
+  **dict.fromkeys(["心臟", "瓣膜", "心", "心導管手術"], "心臟內科"),
   **dict.fromkeys(["胸口", "胸"], "胸腔外科"),
-  **dict.fromkeys(["眼睛"], "眼科"),
-  **dict.fromkeys(["小孩耳朵"], "小兒科")
+  **dict.fromkeys(["眼睛", "飛蚊症"], "眼科"), 
+  **dict.fromkeys(["泌尿"], "泌尿科"), 
+  **dict.fromkeys(["賀爾蒙"], "內分泌科"),
+  **dict.fromkeys(["泌尿", "小便", "尿"], "泌尿科"),
+  **dict.fromkeys(["神經內","麻痺"], "神經內科"),
+  **dict.fromkeys(["胸腔內"], "胸腔內科")
 }
 
-#DepartmentDICT = {
-  #**dict.fromkeys(["耳朵","鼻子","鼻","咽喉","顎","鼻涕"], "耳鼻喉科"), 
-  #**dict.fromkeys(["肚子","腸胃"], "腸胃科")
-#}
 def FindDepartment(inputSTR):
     return DepartmentDICT[inputSTR]
 
@@ -212,14 +212,15 @@ def Result(inputSTR):
     inputLIST = [inputSTR]
     Emergency = ["大量出血","昏迷","失去意識","沒有心跳","血流不止","停止呼吸"]
     ChildLIST = ["小孩","孩子","女兒","兒子"]
-    if any (eme in inputLIST[0] for eme in Emergency):
+    if any (eme in inputSTR for eme in Emergency):
         return "請立即撥打119掛急診"
     else:
         try:
             resultDICT = runLoki(inputLIST)
-            bodypart = resultDICT["bodypart"]
-            try: 
-                child = resultDICT["child"]
+            print("debug0{}".format(resultDICT))
+            try:
+                child = resultDICT["gender"]
+                print("debug1{}".format(child))
                 if (kid in child for kid in ChildLIST):
                     response = input("請問是否為12歲(包含12)以下的小孩?填入y/n")
                     if response == "y":
@@ -227,72 +228,84 @@ def Result(inputSTR):
                     else: 
                         department = FindDepartment(bodypart)
                         return "可以去{dep}看診".format(dep=department)
-            except: 
-                department = FindDepartment(bodypart)
+            except:
+                try:
+                    #print("Result => {}".format(resultDICT))
+                    symptom = resultDICT["symptom"]
+                    department = FindDepartment(symptom)
+                    #print("可以去{dep}看診".format(dep=department))
+                except:
+                    bodypart = resultDICT["bodypart"]
+                    department = FindDepartment(bodypart)
+                    #print(department)
                 return "可以去{dep}看診".format(dep=department)
+        #print(Result(inputSTR)) 
         except:
-            return "尚未解決QQ 這部分會盡速處理！" 
+            return "尚未解決QQ 這部分會盡速處理！"
     
-if __name__ == "__main__":
-    inputSTR = "我大量出血"
-    inputLIST = [inputSTR]
-    Emergency = ["大量出血","昏迷","失去意識","沒有心跳","血流不止","停止呼吸"]
-    if any (eme in inputSTR for eme in Emergency):
-        print("請立即撥打119掛急診")
-    else:
-        resultDICT = runLoki(inputLIST)
-        print("Result => {}".format(resultDICT))
-        bodypart = resultDICT["bodypart"]
-        department = FindDepartment(bodypart)
-        print(department)
-        print("可以去{dep}看診".format(dep=department))
-    print(Result(inputSTR))   
-
-
-
-#DepartmentDICT = {
-  #**dict.fromkeys(["耳朵","鼻子","鼻","咽喉","顎","鼻涕", "喉嚨卡", "喉部", "脖子", "耳", "鼻樑", "鼻腔內"], "耳鼻喉科"), 
-  #**dict.fromkeys(["肚子","腸胃", "胃"], "腸胃科"),
-  #**dict.fromkeys(["嘴", "風持穴", "小腿痠", "臉頰", "屁股", "眉間", "頭", "頸部", "頸部長"], "家醫科"),
-  #**dict.fromkeys(["陰部長"], "婦產科"),
-  #**dict.fromkeys(["腹"], "一般內科"),
-  #**dict.fromkeys(["心臟", "瓣膜", "心"], "心臟內科"),
-  #**dict.fromkeys(["胸口", "胸"], "胸腔外科"),
-  #**dict.fromkeys(["眼睛"], "眼科")
-#}
-
-##DepartmentDICT = {
-  ##**dict.fromkeys(["耳朵","鼻子","鼻","咽喉","顎","鼻涕"], "耳鼻喉科"), 
-  ##**dict.fromkeys(["肚子","腸胃"], "腸胃科")
-##}
-#def FindDepartment(inputSTR):
-    #return DepartmentDICT[inputSTR]
-
 #def Result(inputSTR):
     #inputLIST = [inputSTR]
-    #print("debug_msg:{}".format(inputSTR))
     #Emergency = ["大量出血","昏迷","失去意識","沒有心跳","血流不止","停止呼吸"]
+    #ChildLIST = ["小孩","孩子","女兒","兒子"]
     #if any (eme in inputLIST[0] for eme in Emergency):
         #return "請立即撥打119掛急診"
     #else:
-        #resultDICT = runLoki(inputLIST)
-        #bodypart = resultDICT["bodypart"]
-        #department = FindDepartment(bodypart)
-        #print("debug_msg:{}".format(resultDICT))
-        #return "可以去{dep}看診".format(dep=department)
-        
+        #try:
+            #resultDICT = runLoki(inputLIST)
+            #bodypart = resultDICT["bodypart"]
+            #try:
+                #child = resultDICT["child"]
+                #if (kid in child for kid in ChildLIST):
+                    #response = input("請問是否為12歲(包含12)以下的小孩?填入y/n")
+                    #if response == "y":
+                        #return "可以去小兒科看診"
+                    #else: 
+                        #department = FindDepartment(bodypart)
+                        #return "可以去{dep}看診".format(dep=department)
+            #except: 
+                #department = FindDepartment(bodypart)
+                #return "可以去{dep}看診".format(dep=department)
+        #except:
+            #return "尚未解決QQ 這部分會盡速處理！" 
     
+if __name__ == "__main__":
+    inputSTR = "我拉肚子"
+    print(Result(inputSTR))
     
-#if __name__ == "__main__":
-    #inputSTR = "我眼睛長東西"
+    #test area
     #inputLIST = [inputSTR]
     #Emergency = ["大量出血","昏迷","失去意識","沒有心跳","血流不止","停止呼吸"]
-    #if any (eme in inputLIST for eme in Emergency):
+    #ChildLIST = ["小孩","孩子","女兒","兒子"]
+    #if any (eme in inputSTR for eme in Emergency):
         #print("請立即撥打119掛急診")
     #else:
-        #resultDICT = runLoki(inputLIST)
-        #print("Result => {}".format(resultDICT))
-        #bodypart = resultDICT["bodypart"]
-        #department = FindDepartment(bodypart)
-        #print("可以去{dep}看診".format(dep=department))
-    #print(Result(inputSTR))   
+        #try:
+            #resultDICT = runLoki(inputLIST)
+            #print("debug0{}".format(resultDICT))
+            #try:
+                #child = resultDICT["gender"]
+                #print("debug1{}".format(child))
+                #if (kid in child for kid in ChildLIST):
+                    #response = input("請問是否為12歲(包含12)以下的小孩?填入y/n")
+                    #if response == "y":
+                        #print( "可以去小兒科看診")
+                    #else: 
+                        #department = FindDepartment(bodypart)
+                        #print( "可以去{dep}看診".format(dep=department))
+            #except:
+                #try:
+                    
+                    #print("Result => {}".format(resultDICT))
+                    #symptom = resultDICT["symptom"]
+                    #department = FindDepartment(symptom)
+                    ##print("可以去{dep}看診".format(dep=department))
+                #except:
+                    #bodypart = resultDICT["bodypart"]
+                    #department = FindDepartment(bodypart)
+                    ##print(department)
+                #print("可以去{dep}看診".format(dep=department))
+        ##print(Result(inputSTR)) 
+        #except:
+            #print( "尚未解決QQ 這部分會盡速處理！")
+            
+

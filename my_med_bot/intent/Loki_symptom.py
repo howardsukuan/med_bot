@@ -52,7 +52,8 @@ def getResult(inputSTR, utterance, args, resultDICT):
 
     if utterance == "[我][最近][一直]咳嗽":
         # write your code here
-        resultDICT["symptom"] = "耳鼻喉" 
+        if "咳嗽" in inputSTR :
+            resultDICT["symptom"] = "家醫"        
         pass
 
     if utterance == "[我][每日][一][腹瀉]":
@@ -101,7 +102,8 @@ def getResult(inputSTR, utterance, args, resultDICT):
 
     if utterance == "[我]會放臭[屁]":
         # write your code here
-        resultDICT["symptom"] = "腸胃"
+        if "臭" in inputSTR and args[1] in inputSTR:
+            resultDICT["symptom"] = "腸胃"    
         pass
 
     if utterance == "[我]有[高血壓][心臟病]":
@@ -111,7 +113,8 @@ def getResult(inputSTR, utterance, args, resultDICT):
 
     if utterance == "[我]有心悸":
         # write your code here
-        resultDICT["symptom"] = "心臟"
+        if "心悸" in inputSTR:
+            resultDICT["symptom"] = "心臟"         
         pass
 
     if utterance == "[我]無法行走":
@@ -121,35 +124,49 @@ def getResult(inputSTR, utterance, args, resultDICT):
 
     if utterance == "[我]發燒感冒":
         # write your code here
-        if "發燒" in inputSTR and "感冒" in inputSTR:
-            resultDICT[""] = "家醫" 
-        
+        if "發燒" in inputSTR:
+            resultDICT["symptom"] = "家醫"        
+        pass
+
+    if utterance == "[我]發燒感冒":
+        # write your code here
+        if "感冒" in inputSTR:
+            resultDICT["symptom"] = "家醫"       
         pass
 
     if utterance == "[我]要驗[B][肝]":
         # write your code here
         if args[2] in inputSTR and args[3] in inputSTR:
-            resultDICT[""] ="一般內" 
+            resultDICT["symptom"] ="一般內" 
         pass
 
     if utterance == "[我]要驗孕":
         # write your code here
-        resultDICT["symptom"] = "婦產"
+        if "驗孕" in inputSTR:
+            resultDICT["symptom"] = "婦產" 
         pass
 
     if utterance == "[我]覺得缺氧":
         # write your code here
-        resultDICT["symptom"] = "胸腔內"
+        if "缺氧" in inputSTR:
+            resultDICT["symptom"] = "胸腔內" 
         pass
 
     if utterance == "[我]食慾不振會[噁心]":
         # write your code here
-        resultDICT["symptom"] = "家醫"
+        if "食慾不振" in inputSTR:
+            resultDICT["symptom"] = "家醫" 
         pass
-
+ 
+    if utterance == "[我]食慾不振會[噁心]":
+        # write your code here
+        resultDICT["symptom"]=args[1]
+        pass
+    
     if utterance == "[我人]會暈":
         # write your code here
-        resultDICT["symptom"] = "家醫"
+        if "暈" in inputSTR:
+            resultDICT["symptom"] = "頭暈"        
         pass
 
     return resultDICT
