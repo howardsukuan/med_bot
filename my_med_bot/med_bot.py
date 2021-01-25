@@ -55,7 +55,7 @@ except:
     from .intent import Loki_symptom
 
 
-LOKI_URL = ""
+LOKI_URL = "https://api.droidtown.co/Loki/BulkAPI/"
 USERNAME = ""
 LOKI_KEY = ""
 # 意圖過濾器說明

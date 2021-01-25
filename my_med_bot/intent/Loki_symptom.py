@@ -24,17 +24,19 @@ def debugInfo(inputSTR, utterance):
 
 def getResult(inputSTR, utterance, args, resultDICT):
     debugInfo(inputSTR, utterance)
-    if utterance == "[我][一直]拉肚子":
+    if utterance == "[我]一直拉肚子":
         # write your code here
-        resultDICT["symptom"] = "腸胃"
+        if "拉肚子" in inputSTR:
+            resultDICT["symptom"] = "腸胃"
         pass
 
-    if utterance == "[我][一直]跑廁[所]":
+    if utterance == "[我]一直跑廁所":
         # write your code here
-        resultDICT["symptom"] = "腸胃"
+        if "跑廁所" in inputSTR:
+            resultDICT["symptom"] = "腸胃"         
         pass
 
-    if utterance == "[我][上][廁所]的[頻率]增加":
+    if utterance == "[我]上[廁所]的[頻率]增加":
         # write your code here
         resultDICT["symptom"] = "泌尿"
         pass
@@ -44,7 +46,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
         resultDICT["symptom"] = "腸胃"
         pass
 
-    if utterance == "[我][晚上]要睡著會忘記呼吸":
+    if utterance == "[我]晚上要睡著會忘記呼吸":
         # write your code here
         if "忘記" in inputSTR and "呼吸" in inputSTR:
             resultDICT["symptom"] = "耳鼻喉" 
@@ -56,9 +58,9 @@ def getResult(inputSTR, utterance, args, resultDICT):
             resultDICT["symptom"] = "家醫"        
         pass
 
-    if utterance == "[我][每日][一][腹瀉]":
+    if utterance == "[我]每日[一][腹瀉]":
         # write your code here
-        resultDICT["symptom"] = args[3]
+        resultDICT["symptom"] = args[2]
         pass
 
     if utterance == "[我][賀爾蒙]失調":
@@ -79,7 +81,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
 
     if utterance == "[我]想吐":
         # write your code here
-        if "想吐" in inputSTR:
+        if "吐" in inputSTR:
             resultDICT["symptom"] = "家醫"
         pass
 
@@ -100,9 +102,9 @@ def getResult(inputSTR, utterance, args, resultDICT):
             resultDICT["symptom"]="耳鼻喉"
         pass
 
-    if utterance == "[我]會放臭[屁]":
+    if utterance == "[我]會放[臭屁]":
         # write your code here
-        if "臭" in inputSTR and args[1] in inputSTR:
+        if "屁" in inputSTR:
             resultDICT["symptom"] = "腸胃"    
         pass
 
@@ -124,14 +126,8 @@ def getResult(inputSTR, utterance, args, resultDICT):
 
     if utterance == "[我]發燒感冒":
         # write your code here
-        if "發燒" in inputSTR:
+        if "發燒" in inputSTR or "感冒" in inputSTR:
             resultDICT["symptom"] = "家醫"        
-        pass
-
-    if utterance == "[我]發燒感冒":
-        # write your code here
-        if "感冒" in inputSTR:
-            resultDICT["symptom"] = "家醫"       
         pass
 
     if utterance == "[我]要驗[B][肝]":
@@ -154,13 +150,8 @@ def getResult(inputSTR, utterance, args, resultDICT):
 
     if utterance == "[我]食慾不振會[噁心]":
         # write your code here
-        if "食慾不振" in inputSTR:
+        if "食慾不振" in inputSTR or args[1] in inputSTR:
             resultDICT["symptom"] = "家醫" 
-        pass
- 
-    if utterance == "[我]食慾不振會[噁心]":
-        # write your code here
-        resultDICT["symptom"]=args[1]
         pass
     
     if utterance == "[我人]會暈":
