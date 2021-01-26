@@ -1,4 +1,4 @@
-## <font color=#0000FF>看病小幫手 My MedBot </font>
+## 看病小幫手 My MedBot
 「肚子有點痛」
 
 「怎麼辦，心臟有點痛」
@@ -16,8 +16,11 @@
 2. 詢問 my_med_bot，例如
    
    @my_med_bot 我肚子不太舒服
+   
    @my_med_bot 我心臟痛
    
+   
    看病小幫手: 請問您的孩子是12歲以下嗎? y/n
+   
    你: @my_med_bot y
    
