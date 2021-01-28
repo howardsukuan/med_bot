@@ -189,24 +189,26 @@ def runLoki(inputLIST):
     else:
         resultDICT = {"msg": lokiRst.getMessage()}
     return resultDICT
-
+#This is a dictionary for the possible symptoms and bodyparts that could be uncomfortable for the patients 
 DepartmentDICT = {
-  **dict.fromkeys(["顎","耳朵","鼻子","鼻","咽喉","顎","鼻涕", "喉嚨", "喉部", "脖子", "耳", "鼻樑", "鼻腔內", "耳鼻喉", "鼻炎", "打呼", "打鼾", "扁桃腺"], "耳鼻喉科"), 
+  **dict.fromkeys(["顎","耳朵","鼻子","鼻","咽喉","顎","鼻涕", "喉嚨", "喉部", "脖子", "耳", "鼻樑", "鼻腔內", "耳鼻喉", "鼻炎", "打呼", "打鼾", "扁桃腺", "流鼻血", "過敏性鼻炎"], "耳鼻喉科"), 
   **dict.fromkeys(["肚子","腸胃", "胃"], "腸胃科"),
-  **dict.fromkeys(["頸椎","喉部","嘴", "風持穴", "小腿", "臉頰", "屁股", "眉間", "頭", "頸部", "頸部", "腹瀉", "家醫", "頭痛", "頭暈", "咳嗽", "噁心","小拇指"], "家醫科"),
+  **dict.fromkeys(["頸椎","喉部","嘴", "風池穴", "小腿", "臉頰", "屁股", "眉間", "頭", "頸部", "頸部", "腹瀉", "家醫", "頭痛", "頭暈", "咳嗽", "噁心","小拇指", "下背", "發燒", "疲勞", "疲倦", "暈眩"], "家醫科"),
   **dict.fromkeys(["陰部", "婦產", "乳房", "乳腺", "陰道"], "婦產科"),
-  **dict.fromkeys(["腹"], "一般內科"),
+  **dict.fromkeys(["腹", "高血壓", "黃疸"], "一般內科"),
   **dict.fromkeys(["心臟", "瓣膜", "心", "心導管手術","心跳"], "心臟內科"),
   **dict.fromkeys(["胸口", "胸"], "胸腔外科"),
-  **dict.fromkeys(["眼睛", "飛蚊症"], "眼科"), 
+  **dict.fromkeys(["眼睛", "飛蚊症", "眼"], "眼科"), 
   **dict.fromkeys(["泌尿"], "泌尿科"), 
   **dict.fromkeys(["賀爾蒙"], "內分泌科"),
   **dict.fromkeys(["泌尿", "小便", "尿"], "泌尿科"),
   **dict.fromkeys(["神經內","麻痺"], "神經內科"),
-  **dict.fromkeys(["胸腔內"], "胸腔內科")
+  **dict.fromkeys(["胸腔內"], "胸腔內科"),
+  **dict.fromkeys(["牙齒"], "牙科"),
+  **dict.fromkeys(["掉頭髮"], "皮膚科"),
 }
 
-
+#this is a function for matching the department with the bodypart or symptom
 def FindDepartment(inputSTR):
     inputLIST = [inputSTR]
     try:
@@ -245,7 +247,7 @@ def Result(inputSTR):
         
     
 if __name__ == "__main__":
-    inputSTR = "我心臟痛痛的"
+    inputSTR = "我有過敏性鼻炎"
     print(Result(inputSTR))
     
    
