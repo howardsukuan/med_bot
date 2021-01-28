@@ -34,9 +34,9 @@ def getResult(inputSTR, utterance, args, resultDICT):
         resultDICT["bodypart"]=args[1]
         pass
 
-    if utterance == "[口腔]上[顎]有[血]絲":
+    if utterance == "[口腔][上][顎]有[血][絲]":
         # write your code here
-        resultDICT["bodypart"]=args[1]
+        resultDICT["bodypart"]=args[2]
         pass
 
     if utterance == "[喉嚨]卡卡":
@@ -44,20 +44,22 @@ def getResult(inputSTR, utterance, args, resultDICT):
         resultDICT["bodypart"]=args[0]
         pass
 
-    if utterance == "[喉部]兩側還是會不[舒服]":
+    if utterance == "[喉部][兩側]還是會不[舒服]":
         # write your code here
         resultDICT["bodypart"]=args[0]
         pass
 
-    if utterance == "[嘴]上[長黑斑]":
+    if utterance == "[嘴][上][長黑斑]":
         # write your code here
-        resultDICT["bodypart"]=args[0]
-        resultDICT["symptom"]=args[1] #regular expression?? 
+        if "風池穴" in inputSTR:
+            resultDICT["bodypart"]="家醫"
+        else:
+            resultDICT["bodypart"]=args[0]
         pass
 
-    if utterance == "[我]下[腹]痛[很久]":
+    if utterance == "[我][下][腹]痛[很久]":
         # write your code here
-        resultDICT["bodypart"]=args[1]
+        resultDICT["bodypart"]=args[2]
         pass
 
     if utterance == "[我][喉嚨]痛到[耳朵]":
@@ -65,9 +67,9 @@ def getResult(inputSTR, utterance, args, resultDICT):
         resultDICT["bodypart"]=args[1]
         pass
 
-    if utterance == "[我]外[陰部]長肉":
+    if utterance == "[我][外][陰部]長肉":
         # write your code here
-        resultDICT["bodypart"]=args[1]
+        resultDICT["bodypart"]=args[2]
         pass
 
     if utterance == "[我]左側[風池穴]附近[經絡處]摸到[硬塊]":
@@ -90,9 +92,9 @@ def getResult(inputSTR, utterance, args, resultDICT):
         resultDICT["bodypart"]=args[3]
         pass
 
-    if utterance == "[我]有時[頭]會[突然]暈一下":
+    if utterance == "[我][有時][頭]會[突然]暈一下":
         # write your code here
-        resultDICT["bodypart"]=args[1]
+        resultDICT["bodypart"]=args[2]
         pass
 
     if utterance == "[我][瓣膜]鬆掉":
@@ -130,9 +132,6 @@ def getResult(inputSTR, utterance, args, resultDICT):
         resultDICT["bodypart"]=args[1]
         pass
 
-    if utterance == "[我]持續頭暈快兩個月":
-        # write your code here
-        pass
 
     if utterance == "[我]擦[屁股]有[血]":
         # write your code here
@@ -149,14 +148,14 @@ def getResult(inputSTR, utterance, args, resultDICT):
         resultDICT["bodypart"]=args[1]
         pass
 
-    if utterance == "[我]開始[心]跳跳[很快]":
+    if utterance == "[我]開始[心跳]跳[很快]":
         # write your code here
         resultDICT["bodypart"]=args[1]
         pass
 
-    if utterance == "早上擤[鼻涕][也]是[綠色]":
+    if utterance == "[早上]擤[鼻涕][也]是[綠色]":
         # write your code here
-        resultDICT["bodypart"]=args[0]
+        resultDICT["bodypart"]=args[1]
         pass
 
     if utterance == "[眉間]下[方]還沒到[眼睛]的[地方]會痛":
@@ -164,7 +163,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
         resultDICT["bodypart"]=args[2]
         pass
 
-    if utterance == "[眼睛]經常不[舒服]":
+    if utterance == "[眼睛][經常]不[舒服]":
         # write your code here
         resultDICT["bodypart"]=args[0]
         pass
@@ -182,8 +181,6 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "[頭]很痛":
         # write your code here
         resultDICT["bodypart"]=args[0]
-        if "很痛" in inputSTR :
-            resultDICT["symptom"] = "家醫"
         pass
 
     if utterance == "[頸部]有腫塊":
@@ -191,22 +188,22 @@ def getResult(inputSTR, utterance, args, resultDICT):
         resultDICT["bodypart"]=args[0]
         pass
 
-    if utterance == "[頸部長]了腫[塊]":
+    if utterance == "[頸部]長了[腫塊]":
         # write your code here
         resultDICT["bodypart"]=args[0]
         pass
 
-    if utterance == "[鼻子]裡面感覺[很緊繃]":
+    if utterance == "[鼻子][裡面]感覺[很緊繃]":
         # write your code here
         resultDICT["bodypart"]=args[0]
         pass
 
-    if utterance == "[鼻子]開始會[長期鼻]塞":
+    if utterance == "[鼻子]開始會[長期]鼻塞":
         # write your code here
         resultDICT["bodypart"]=args[0]
         pass
 
-    if utterance == "[鼻樑]兩側會痛":
+    if utterance == "[鼻樑][兩側]會痛":
         # write your code here
         resultDICT["bodypart"]=args[0]
         pass
@@ -222,9 +219,9 @@ def getResult(inputSTR, utterance, args, resultDICT):
             resultDICT["symptom"]="耳鼻喉"
         pass
 
-    if utterance == "從兩三年前就會頭暈還伴隨耳鳴，[胃]痛和失眠":
+    if utterance == "從[兩三年][前]就會頭暈還伴隨耳鳴，[胃]痛和失眠":
         # write your code here
-        resultDICT["bodypart"]=args[0]
+        resultDICT["bodypart"]=args[2]
         pass
 
     if utterance == "轉動[脖子]會不[舒服]":
@@ -242,6 +239,22 @@ def getResult(inputSTR, utterance, args, resultDICT):
         # write your code here
         resultDICT["bodypart"]=args[0]
         pass    
-      
+    
+    if utterance == "[脖子][一顆]硬硬的":
+        # args [脖子, 一顆]
+        resultDICT["bodypart"]=args[0]
+        pass 
+    
+    if utterance == "我[有時][頭]會稍微暈一下":
+        # args [有時, 頭] 
+        resultDICT["bodypart"]=args[1]
+        
+    if utterance == "我[最近][一年]多容易[小腿]酸":
+        # args [最近, 一年, 小腿] 
+        resultDICT["bodypart"]=args[2]
+    
+    if utterance == "我[心臟]痛痛的":
+        # args [心臟]
+        resultDICT["bodypart"]=args[0]
 
     return resultDICT

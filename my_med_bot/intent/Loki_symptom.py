@@ -150,7 +150,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
 
     if utterance == "[我]食慾不振會[噁心]":
         # write your code here
-        if "食慾不振" in inputSTR or args[1] in inputSTR:
+        if "食慾不振" in inputSTR:
             resultDICT["symptom"] = "家醫" 
         pass
     
@@ -159,5 +159,9 @@ def getResult(inputSTR, utterance, args, resultDICT):
         if "暈" in inputSTR:
             resultDICT["symptom"] = "頭暈"        
         pass
+    if utterance == "我持續頭暈快[兩個月]":
+        # args [兩個月] 
+        if "暈" in inputSTR:
+            resultDICT["symptom"] = "頭暈"  
 
     return resultDICT
