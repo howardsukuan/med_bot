@@ -15,8 +15,6 @@
 1. 加入 my_med_bot 到discord 
 2. 詢問 my_med_bot，例如
    
-   @my_med_bot 我肚子不太舒服
-   
    @my_med_bot 我心臟痛
    
    
@@ -24,3 +22,7 @@
    
    你: @my_med_bot y
    
+   例如
+   
+   ![y/n](https://upload.cc/i1/2021/01/29/zdPcOy.png)
+  
