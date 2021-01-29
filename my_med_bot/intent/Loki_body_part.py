@@ -256,5 +256,12 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "我[心臟]痛痛的":
         # args [心臟]
         resultDICT["bodypart"]=args[0]
+    if utterance == "[背]很酸":
+        # args [背] 
+        resultDICT["bodypart"]=args[0]
+    if utterance == "[眼][前]有小黑影":
+        # args [眼, 前]    
+        resultDICT["bodypart"]=args[0]
+  
 
     return resultDICT

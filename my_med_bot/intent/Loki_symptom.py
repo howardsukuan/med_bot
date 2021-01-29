@@ -163,5 +163,32 @@ def getResult(inputSTR, utterance, args, resultDICT):
         # args [兩個月] 
         if "暈" in inputSTR:
             resultDICT["symptom"] = "頭暈"  
+    if utterance == "我暈眩":
+        # args []
+        if "暈眩" in inputSTR:
+            resultDICT["symptom"] = "頭暈"  
+    if utterance == "發燒了":
+        if "發燒" in inputSTR:
+            resultDICT["symptom"] = "家醫" 
+    if utterance == "感冒了":
+        if "感冒" in inputSTR:
+            resultDICT["symptom"] = "家醫" 
+    if utterance == "我有點[疲勞]":
+        resultDICT["symptom"] = args[0]
+    if utterance == "頭痛":
+        # args []
+        resultDICT["symptom"] = "頭痛"
+    if utterance == "黃疸":
+        # args []
+        resultDICT["symptom"] = "腸胃"
+    if utterance == "流鼻血":
+        # args []
+        resultDICT["symptom"] = "家醫"
+    if utterance == "高血壓":
+        # args []
+        resultDICT["symptom"] = "一般內科"
+    if utterance == "過敏":
+        # args []   
+        resultDICT["symptom"] = "家醫"
 
     return resultDICT
