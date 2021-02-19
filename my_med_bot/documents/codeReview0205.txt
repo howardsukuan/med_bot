@@ -1,0 +1,147 @@
+0205 Code Review 
+
+Coding Review 怎麼講
+e.g. 
+總共 257 code 分成幾個段落
+
+分哪幾段
+第四行 到 第幾行是什麼設定
+
+21 有一隻function 
+... 有一隻function 
+
+介紹 寫在function 下面
+依照discord template 寫的 
+可以知道
+client event 
+
+這隻function 負責去
+
+[以上非完整]
+
+async 非同步 
+
+如果有同步broswer 打url 那個網頁是不會動作的 等太久沒有回應
+
+不同步
+我把訊息給你 有沒有收到是別人的事情
+不會讓server 把設定給別人
+
+收message 這隻就是async 的設定
+
+discord message 
+discord phone 
+discord app 是不是設定不一樣
+是不是字串長得不一樣
+
+
+33 async def on_message(message):
+    msgSTR  = message.content.replace("<@!{}> ".format(client.user.id), "")
+
+空格不一致
+
+35-37
+35        EndConversation = ["謝謝","謝啦","thx","ok","掰","bye"]
+
+1. endConverstion 名字就要寫它的型態 (e.g. EndConverstionLIST) 
+2. 放在IF 裡面 每次有訊息裡面就會產生 EndConversation 的記憶體
+
+> 可以在34行 這是和這支function 有關的
+寫在function 裡面 但不能太裡面 
+
+34-38
+"我老爸掰了"  會觸動別的東西
+
+39-60
+39 承接else 之後的對話 (要加入註解) 
+連續前一輪對話 回傳資訊
+啟動新的一輪新對話
+
+tip: 看audience 是誰來選擇註解的語言 (可以用中文看看) 
+
+56-60 
+
+57 response 的名字 要改 (responseDICT) (但會和別人衝突) 
+看另外一個 med.bot (2).py
+response 
+
+249 這邊的response 用法不太經濟 --> 看 issue3
+
+***可以盡量省記憶體
+
+- 可以盡量不要變數名稱太多 
+- 以可讀性為主，所以名稱不要太像 
+
+[med.bot.py]
+不用註解別人的工作 
+註解我做了什麼
+
+
+Emergency --> EmergencyLIST
+
+215 名字 
+因為可以不用每次都跑
+所以 Emergency 就可以放外面
+
+216 可以刪掉 然後 直接寫下來 
+resultDICT = runliki([input]) 
+
+Q: bodypart 是什麼 ? (之後可以講清楚) 
+
+補ReadMe 
+bodypart 
+symptom 是怎麼分的 
+
+228 / 217 
+
+217 行應該 department 的 不應該放 字串 
+
+medDICT = {"dep":[]} 
+
+> 這樣存成 LIST 這樣 
+這樣可能就可以它們可以看 兩科可以看 
+用append 
+
+235 這裡這不是用空字串 就是用空的[]
+
+238 可以往上貼 
+
+
+FindDepartment 設計上不是給別人操控它的
+加底線 是代表說是給自己用的 (不是給別人用的) (給同一張的人)  
+
+Result 是要出去給別人用的 (給med_bot(2).py)
+
+雙底像是python 自己的保留字
+department >> departmentLIST
+
+空格要一致
+
+[med_bot]
+
+要給user 
+要正規劃  
+
+先把它lower 再 strip 
+def _FindDepartment(inputSTR):
+if inputSTR.lower().strip() == "y":
+
+或是可以用 in 
+可以多幾個可能性
+if inputSTR.lower().strip() in  ("y", "yes", "yup"):
+
+no nope nee 
+
+如果是i don't know 
+if else 中間 再加 另外一個處理 i don't know 的例子
+
+要有 Yes and no 之外的第三選擇 
+
+
+
+可以加tag 人 >>到底在回誰 
+
+幫助自己 
+真的是家醫 >> 家醫科!!!! 
+不確定 >> 你可以試試家醫科 
+
