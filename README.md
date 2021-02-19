@@ -15,7 +15,10 @@
 1. 加入 my_med_bot 到discord 
 2. 詢問 my_med_bot，例如
    
-   @my_med_bot 我心臟痛
+   @my_med_bot 我喉嚨痛
+   
+  
+  ![喉嚨痛](https://upload.cc/i1/2021/01/29/W4ChRr.png)
    
    
    看病小幫手: 請問您的孩子是12歲以下嗎? y/n
