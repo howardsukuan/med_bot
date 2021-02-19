@@ -262,6 +262,16 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "[眼][前]有小黑影":
         # args [眼, 前]    
         resultDICT["bodypart"]=args[0]
+    if utterance == "我[上][臂]痠痛":
+        # args [上, 臂]
+        resultDICT["bodypart"]=args[1]
+    
+    if utterance == "[我][牙齒]痛":
+        resultDICT["bodypart"]=args[1]
+        # args [我, 牙齒] 
+    if utterance == "我[骨頭]裂了":
+        # args [骨頭]
+        resultDICT["bodypart"]=args[0]
   
 
     return resultDICT

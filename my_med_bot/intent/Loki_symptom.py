@@ -83,6 +83,8 @@ def getResult(inputSTR, utterance, args, resultDICT):
         # write your code here
         if "吐" in inputSTR:
             resultDICT["symptom"] = "家醫"
+        if "痣" in inputSTR:
+            resultDICT["symptom"] = "皮膚"
         pass
 
     if utterance == "[我]拉肚子":
@@ -110,7 +112,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
 
     if utterance == "[我]有[高血壓][心臟病]":
         # write your code here
-        resultDICT["symptom"] = args[1:]
+        resultDICT["symptom"] = args[1]
         pass
 
     if utterance == "[我]有心悸":
@@ -151,7 +153,9 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "[我]食慾不振會[噁心]":
         # write your code here
         if "食慾不振" in inputSTR:
-            resultDICT["symptom"] = "家醫" 
+            resultDICT["symptom"] = "家醫"
+        if "瘋" in inputSTR:
+            resultDICT["symptom"] = "身心"
         pass
     
     if utterance == "[我人]會暈":
@@ -177,7 +181,10 @@ def getResult(inputSTR, utterance, args, resultDICT):
         resultDICT["symptom"] = args[0]
     if utterance == "頭痛":
         # args []
-        resultDICT["symptom"] = "頭痛"
+        if "乳房" in inputSTR:
+            resultDICT["symptom"] = "婦產"
+        else:
+            resultDICT["symptom"] = "頭痛"
     if utterance == "黃疸":
         # args []
         resultDICT["symptom"] = "腸胃"
@@ -190,5 +197,26 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "過敏":
         # args []   
         resultDICT["symptom"] = "家醫"
+    if utterance == "我有[脂肪瘤]":
+        # args [脂肪瘤]
+        resultDICT["symptom"] = args[0]
+    if utterance == "我[一直]長[痘痘]":
+        # args [一直, 痘痘]
+        resultDICT["symptom"] = args[1]
+    
+    if utterance == "瘋了":
+        # args []
+        if "瘋" in inputSTR:
+            resultDICT["symptom"] = "身心"
+            
+    if utterance == "[我]禿了":
+        # args [朋友]
+        if "禿" in inputSTR:
+            resultDICT["symptom"] = "皮膚" 
+    
+    if utterance == "[我]骨折了":
+        # args [我]
+        if "骨折" in inputSTR:
+            resultDICT["symptom"] = "骨科"       
 
     return resultDICT

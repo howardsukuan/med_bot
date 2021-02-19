@@ -5,7 +5,7 @@ import discord
 from med_bot_for_Loki import Result as medBot
 
 DISCORD_TOKEN=""
-DISCORD_GUILD="討論小圈圈"
+DISCORD_GUILD=""
 BOT_NAME = "my_med_bot"
 #DISCORD_TOKEN=""
 #DISCORD_GUILD=""
@@ -28,24 +28,18 @@ async def on_ready():
     members = '\n - '.join([member.name for member in guild.members])
     print(f'Guild Members:\n - {members}')
 
-#訊息正規化: 去除標點，英文大小寫轉換
-punctuationSTR = "!@#$%^&*()_+<>?:.,;。，！～~"  # add whatever you want
-def str_normalization(inputSTR):
-    for w in inputSTR:
-        if w in punctuationSTR:
-            outputSTR = inputSTR.replace(w, "").lower().strip()
-    return outputSTR
+
+
     
-    
-    
+       
     
 @client.event
-endconversationLIST = ["謝謝","謝啦","thx","ok","掰","bye","掰掰","好喔","你可以退下了"]
-yesLIST = ["y","yes","yup","yeah","是","對"]
-noLIST = ["n","no","nope","nah","不是","不"]
-dontknowLIST = ["idontknow","我不知道","不知道"]
 async def on_message(message):
-    msgSTR = str_normalization(message.content.replace("<@!{}> ".format(client.user.id), ""))
+    endconversationLIST = ["謝謝","謝啦","thx","ok","掰","bye","掰掰","好喔","你可以退下了"]
+    yesLIST = ["y","yes","yup","yeah","是","對"]
+    noLIST = ["n","no","nope","nah","不是","不"]
+    dontknowLIST = ["idontknow","我不知道","不知道"]    
+    msgSTR = message.content.replace("<@!{}> ".format(client.user.id),"")
     if "<@!{}>".format(client.user.id) in message.content:
         if any (e == msgSTR  for e in endconversationLIST ):
             response = "<@!{}>好的:)".format(message.author.id)

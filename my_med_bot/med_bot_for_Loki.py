@@ -56,7 +56,7 @@ except:
 
 
 LOKI_URL = "https://api.droidtown.co/Loki/BulkAPI/"
-USERNAME = "jacksugood@gmail.com"
+USERNAME = ""
 LOKI_KEY = ""
 
 # 意圖過濾器說明
@@ -205,31 +205,37 @@ departmentDICT = {
     "神經內科": ["神經內", "麻痺"],
     "胸腔內科": ["胸腔內"],
     "牙科": ["牙齒"],
-    "皮膚科": ["掉頭髮","皮膚","脂肪瘤","痘痘"],
-    "身心科":["心情","睡眠"],
+    "皮膚科": ["掉頭髮","皮膚","脂肪瘤","痘痘", "禿"],
+    "身心科":["心情","睡眠", "瘋", "身心"],
+    "骨科":["骨科", "骨頭"]
     }
 #FindDepartment危急情況字典
 emergencyLIST = ["大量出血","昏迷","失去意識","沒有心跳","血流不止","停止呼吸"]
+#humanLIST = ["媽媽", "爸爸", "姨", "姑", "爹", "娘", "朋友", "夥伴", "鄰居"]
+otherLIST = ["狗", "貓", "鳥", "鼠"]
 #根據部位或症狀查詢科別，回傳科別字串
 def FindDepartment(inputSTR): 
     medDICT = {"dept":[]}
     resultDICT = runLoki([inputSTR])
+    print(resultDICT)
     try:     
         for e in departmentDICT.keys():
             if resultDICT["bodypart"]  in departmentDICT[e]:
                 medDICT["dept"].append(e)
+                print(medDICT)
     except:
         pass 
     try:
         for e in departmentDICT.keys():
             if resultDICT["symptom"] in departmentDICT[e]:
-                ["dept"].append(e) 
+                medDICT["dept"].append(e)
+                print(medDICT)
     except:       
         pass
     
     if medDICT["dept"] == []:
         medDICT["dept"].append("試試看家醫科")
-        
+        print("test") 
     if any (eme in inputSTR for eme in emergencyLIST):
         medDICT["dept"].append("請立即打119")
     
@@ -245,12 +251,19 @@ def FindDepartment(inputSTR):
 # in this function, we set a dictionary for each response
 # a special key 'result' is set to the dictionary which appears when the user mentions about their children
 def Result(inputSTR):
-    responseDICT = {"msg": "請問是否為12歲(包含12)以下的小孩?填入y/n",
-                "result":{"y":"可以去小兒科看診", "n":"請去{dep}".format(dep=FindDepartment(inputSTR))}}
+    try:
+        if any(other in inputSTR for other in otherLIST):
+            responseDICT = {"msg": "你確定是人類嗎？填入y/n",
+                            "result":{"y":"請去{dep}".format(dep=FindDepartment(inputSTR))}, "n":"目前只有建制人的醫療分科"}
+            #{"result": "目前只有建制人的醫療分科"}
+                     
+    except:
+        responseDICT = {"msg": "請問是否為12歲(包含12)以下的小孩?填入y/n",
+                        "result":{"y":"可以去小兒科看診", "n":"請去{dep}".format(dep=FindDepartment(inputSTR))}}
     return responseDICT    
         
         
     
 if __name__ == "__main__":
-    inputSTR = "我有過敏性鼻炎"
+    inputSTR = "貓貓骨頭裂了"
     print(Result(inputSTR))
