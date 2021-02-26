@@ -3,6 +3,7 @@
 
 import discord
 from med_bot_for_Loki import Result as medBot
+from account_info import accountInfoDICT
 
 DISCORD_TOKEN=accountInfoDICT["DISCORD_TOKEN"]
 DISCORD_GUILD=accountInfoDICT["DISCORD_GUILD"]

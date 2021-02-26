@@ -197,6 +197,8 @@ def runLoki(inputLIST):
         resultDICT = {"msg": lokiRst.getMessage()}
     return resultDICT
 
+
+
 #根據部位或症狀查詢科別，回傳科別字串
 def FindDepartment(inputSTR): 
     medDICT = {"dept":[]}
@@ -229,9 +231,14 @@ def FindDepartment(inputSTR):
         pass
     
     if medDICT["dept"] == []:
+        for e in departmentDICT.keys():
+            for x in departmentDICT[e]:
+                if x in inputSTR:
+                    medDICT["dept"].append(e)
+                else:
+                    pass
+    if medDICT["dept"] == []:
         medDICT["dept"].append("試試看家醫科")
-        logging.debug("NONE")
-        #print("test ha ha ha ") 
     if any (eme in inputSTR for eme in emergencyLIST):
         medDICT["dept"].append("請立即打119")
     
@@ -259,5 +266,6 @@ def Result(inputSTR):
         
     
 if __name__ == "__main__":
-    inputSTR = "我心跳很快"
+    inputSTR = "嬤嬤暈倒了"
+    print(runLoki([inputSTR ]))
     print(Result(inputSTR))
