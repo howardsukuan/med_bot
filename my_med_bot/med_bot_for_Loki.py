@@ -44,9 +44,9 @@
 
 import requests
 from account_info import accountInfoDICT
-from dictionay import departmentDICT
-from dictionay import emergencyLIST
-from dictionay import otherLIST
+from dictionary import departmentDICT
+from dictionary import emergencyLIST
+from dictionary import otherLIST
 import logging
 logging.basicConfig(level=logging.DEBUG)
 
