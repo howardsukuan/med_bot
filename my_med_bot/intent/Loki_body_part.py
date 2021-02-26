@@ -120,6 +120,10 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "[我][雙腿][無力]":
         # write your code here
         resultDICT["bodypart"]=args[1]
+        if "壓力" in inputSTR and ("大" in inputSTR):
+            resultDICT["symptom"] = "身心"
+        if "手" in inputSTR and ("打斷" in inputSTR):
+            resultDICT["bodypart"] = "骨"        
         pass
 
     if utterance == "[我]感覺[小拇指][快]脫落":
@@ -272,6 +276,8 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "我[骨頭]裂了":
         # args [骨頭]
         resultDICT["bodypart"]=args[0]
+
+            
   
 
     return resultDICT

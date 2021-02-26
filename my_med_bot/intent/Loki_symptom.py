@@ -17,6 +17,8 @@
 DEBUG_symptom = True
 userDefinedDICT = {}
 
+import re 
+
 # 將符合句型的參數列表印出。這是 debug 或是開發用的。
 def debugInfo(inputSTR, utterance):
     if DEBUG_symptom:
@@ -85,6 +87,10 @@ def getResult(inputSTR, utterance, args, resultDICT):
             resultDICT["symptom"] = "家醫"
         if "痣" in inputSTR:
             resultDICT["symptom"] = "皮膚"
+        if "驗傷" in inputSTR:
+            resultDICT["symptom"] = "急診"
+        if "孕" in inputSTR:
+            resultDICT["symptom"] = "婦產"
         pass
 
     if utterance == "[我]拉肚子":
@@ -140,8 +146,10 @@ def getResult(inputSTR, utterance, args, resultDICT):
 
     if utterance == "[我]要驗孕":
         # write your code here
-        if "驗孕" in inputSTR:
-            resultDICT["symptom"] = "婦產" 
+        if "孕" in inputSTR:
+            resultDICT["symptom"] = "婦產"
+        if "驗傷" in inputSTR: 
+            resultDICT["symptom"] = "急診"
         pass
 
     if utterance == "[我]覺得缺氧":
@@ -160,20 +168,22 @@ def getResult(inputSTR, utterance, args, resultDICT):
     
     if utterance == "[我人]會暈":
         # write your code here
-        if "暈" in inputSTR:
-            resultDICT["symptom"] = "頭暈"        
+        if "暈" in inputSTR and "暈倒" not in inputSTR:
+            resultDICT["symptom"] = "頭暈" 
+        if "暈倒" in inputSTR: 
+            resultDICT["symptom"] = "急診"
         pass
     if utterance == "我持續頭暈快[兩個月]":
         # args [兩個月] 
-        if "暈" in inputSTR:
+        if "頭暈" in inputSTR:
             resultDICT["symptom"] = "頭暈"  
     if utterance == "我暈眩":
         # args []
         if "暈眩" in inputSTR:
-            resultDICT["symptom"] = "頭暈"  
+            resultDICT["symptom"] = "頭暈"
     if utterance == "發燒了":
         if "發燒" in inputSTR:
-            resultDICT["symptom"] = "家醫" 
+            resultDICT["symptom"] = "家醫"
     if utterance == "感冒了":
         if "感冒" in inputSTR:
             resultDICT["symptom"] = "家醫" 
@@ -183,7 +193,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
         # args []
         if "乳房" in inputSTR:
             resultDICT["symptom"] = "婦產"
-        else:
+        if "頭痛" in inputSTR:
             resultDICT["symptom"] = "頭痛"
     if utterance == "黃疸":
         # args []
@@ -217,6 +227,161 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "[我]骨折了":
         # args [我]
         if "骨折" in inputSTR:
-            resultDICT["symptom"] = "骨科"       
+            resultDICT["symptom"] = "骨科" 
+    
+    if utterance == "[我]痘痘長滿臉":
+        # args [我]
+        if "痘痘" in inputSTR:
+            resultDICT["symptom"] = "皮膚"
+    
+    if utterance == "[我]痘痘長滿手":
+        # args [我]
+        if "痘痘" in inputSTR:
+            resultDICT["symptom"] = "皮膚"    
+    
+    if utterance == "[我]痘痘長滿背":
+        # args [我]
+        if "痘痘" in inputSTR:
+            resultDICT["symptom"] = "皮膚"    
 
+    if utterance == "[我]痘痘長滿腳":
+        # args [我]
+        if "痘痘" in inputSTR:
+            resultDICT["symptom"] = "皮膚" 
+    if utterance == "[我]好憂鬱":
+        # args [我]
+        if "憂鬱" in inputSTR:
+            resultDICT["symptom"] = "身心"
+    if utterance == "[我]好難過":
+        # args [我]            
+        if "難過" in inputSTR:
+            resultDICT["symptom"] = "身心"            
+    if utterance == "[我]好想哭":
+        # args [我]
+        if "哭" in inputSTR:
+            resultDICT["symptom"] = "身心"        
+    if utterance == "[我]心情不好":
+        # args [我]
+        if "心情不好" in inputSTR:
+            resultDICT["symptom"] = "身心"           
+    if utterance == "[我]的右手沒感覺":
+        # args [我, 右手]
+        if "沒感覺" in inputSTR:
+            resultDICT["symptom"] = "神經內"
+    if utterance == "我[腳]沒感覺":
+        # args [腳]
+        if "沒感覺" in inputSTR and (args[1] == "腳" or args[1] == "手" or args[1] == "手指"):
+            resultDICT["symptom"] = "神經內"
+    if utterance == "[我]的[腳]沒感覺":
+        # args [] 
+        if "沒感覺" in inputSTR and (args[1] == "腳" or args[1] == "手" or args[1] == "手指"):
+            resultDICT["symptom"] = "神經內"
+    if utterance == "[我]指尖沒感覺":
+        # args [我]
+        if "沒感覺" in inputSTR:
+            resultDICT["symptom"] = "神經內"
+    if utterance == "[我]心痛":
+        # args [我] 
+        if "心痛" in inputSTR:
+            resultDICT["symptom"] = "心臟內"
+        if "尿尿" in inputSTR:
+            resultDICT["symptom"] = "泌尿"
+        if "心跳" in inputSTR and ("慢" in inputSTR):
+            resultDICT["symptom"] = "心臟內"
+            
+    if utterance == "手術傷口復發了":
+        # args [] 
+        if "手術傷口" in inputSTR and "復發" in inputSTR:
+            resultDICT["symptom"] = "外"
+            
+    if utterance == "[我]眼睛脫窗了":
+        # args [我]
+        if "眼睛" in inputSTR:
+            resultDICT["symptom"] = "眼"
+    
+    if utterance == "[我]看不到[路]":
+        # args [我, 路]
+        if "看" in inputSTR:
+            resultDICT["symptom"] = "眼"        
+    if utterance == "[我][晚上]看不到[路]":
+        # args [我, 晚上, 路] 
+        if "看" in inputSTR and ("晚上" in inputSTR or "早上" in inputSTR or "清晨" in inputSTR or "中午" in inputSTR, "半夜" in inputSTR):
+            resultDICT["symptom"] = "眼"        
+    if utterance == "[我][晚上]看不見[路]":
+        # args [我, 晚上, 路] 
+        if "看" in inputSTR:
+            resultDICT["symptom"] = "眼"        
+    if utterance == "[我]看不見[路]":
+        # args [我, 路] 
+        if "看" in inputSTR and ("晚上" in inputSTR or "早上" in inputSTR or "清晨" in inputSTR or "中午" in inputSTR, "半夜" in inputSTR):
+            resultDICT["symptom"] = "眼"  
+    if utterance == "[我]中彈了":
+        # args [我]
+        if "中彈" in inputSTR:
+            resultDICT["symptom"] = "急診"
+    if utterance == "[我]好累":
+        # args [我] 
+        if "好累" in inputSTR:
+            resultDICT["symptom"] =  "家醫" 
+    if utterance == "[我]血尿":
+        # args [我]
+        if "血尿" in inputSTR:
+            resultDICT["symptom"] =  "泌尿" 
+    if utterance == "[我]小便有血":
+        # args [我]
+        if "小便" in inputSTR:
+            resultDICT["symptom"] =  "泌尿" 
+    if utterance == "[我]心跳[好快]":
+        # args [我]
+        if "心跳" in inputSTR and ("快" in inputSTR or "慢" in inputSTR):
+            resultDICT["symptom"] =  "心臟內" 
+    if utterance == "[我]心跳有點[慢]":
+        # args [我]
+        if "心跳" in inputSTR and ("慢" in inputSTR or "快" in inputSTR):
+            resultDICT["symptom"] =  "心臟內" 
+    if utterance == "[我]心跳[很慢]":
+        # args [我, 很慢] 
+        if "心跳" in inputSTR and ("慢" in inputSTR or "快" in inputSTR):
+            resultDICT["symptom"] =  "心臟內" 
+    if utterance == "[我]懷孕了":
+        # args [我] 
+        if "懷孕" in inputSTR:
+            resultDICT["symptom"] = "婦產"
+    if utterance == "[我]有蜂窩性組織炎":
+        # args [我]
+        if "蜂窩性組織炎" in inputSTR:
+            resultDICT["symptom"] = "感染"
+        
+    if utterance == "[我]有膽結石":
+        # args [我]  
+        if "膽結石" in inputSTR:
+            resultDICT["symptom"] = "消化內"
+    if utterance == "[我][胸部]有硬塊":
+        # args [我, 胸部] 
+        if "硬塊" in inputSTR:
+            resultDICT["symptom"] = "外"
+    if utterance == "[我]記不起來[路]":
+        # args [我, 路]
+        if "記不起" in inputSTR:
+            resultDICT["symptom"] = "老人醫學"
+
+    if utterance == "我[爸爸]失智":
+        # args [爸爸]
+        if "失智" in inputSTR:
+            resultDICT["symptom"] = "老人醫學"
+    
+    if utterance == "[我]失智":
+        # args [我] 
+        if "失智" in inputSTR:
+            resultDICT["symptom"] = "老人醫學"
+    if utterance == "[我]壓力[好大]":
+        # args [我, 好大]
+        if "壓力" in inputSTR and ("大" in inputSTR):
+            resultDICT["symptom"] = "身心" 
+    if utterance == "[鼻子][剛剛]被打斷了":
+        # args [剛剛]
+        if args[0] == "鼻子" and "被打斷" in inputSTR:
+            resultDICT["symptom"] = "整形外"
+        if (args[0] == "手" or args[0]== "腳") and "被打斷" in inputSTR:
+            resultDICT["symptom"] = "骨"
     return resultDICT

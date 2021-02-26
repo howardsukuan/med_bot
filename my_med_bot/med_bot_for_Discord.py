@@ -4,8 +4,8 @@
 import discord
 from med_bot_for_Loki import Result as medBot
 
-DISCORD_TOKEN=""
-DISCORD_GUILD=""
+DISCORD_TOKEN=accountInfoDICT["DISCORD_TOKEN"]
+DISCORD_GUILD=accountInfoDICT["DISCORD_GUILD"]
 BOT_NAME = "my_med_bot"
 #DISCORD_TOKEN=""
 #DISCORD_GUILD=""
@@ -39,13 +39,13 @@ async def on_message(message):
     yesLIST = ["y","yes","yup","yeah","是","對"]
     noLIST = ["n","no","nope","nah","不是","不"]
     dontknowLIST = ["idontknow","我不知道","不知道"]    
-    msgSTR = message.content.replace("<@!{}> ".format(client.user.id),"")
-    if "<@!{}>".format(client.user.id) in message.content:
+    msgSTR = message.content.replace("<@!{}> ".format(client.user.id),"").lower()
+    if "<@!{}>".format(client.user.id) in message.content or "<@{}>".format(client.user.id) in message.content:
         if any (e == msgSTR  for e in endconversationLIST ):
             response = "<@!{}>好的:)".format(message.author.id)
             await message.channel.send(response)
         #以下else之後程式碼連續前一輪對話 回傳資訊啟動新的一輪新對話
-        else:                
+        else:
             if any (e == msgSTR  for e in yesLIST):
                 userIDSTR = str(message.author.id)
                 if userIDSTR in responseDICT:
@@ -53,11 +53,13 @@ async def on_message(message):
                     del responseDICT[userIDSTR]
                     await message.channel.send(responsemsgSTR)
             elif any (e == msgSTR  for e in noLIST):
+                userIDSTR = str(message.author.id)
                 if userIDSTR in responseDICT:
                     responsemsgSTR = "<@!{}>".format(message.author.id)+responseDICT[userIDSTR]["n"]
                     del responseDICT[userIDSTR]
                     await message.channel.send(responsemsgSTR)
             elif any (e == msgSTR  for e in dontknowLIST):
+                userIDSTR = str(message.author.id)
                 if userIDSTR in responseDICT:
                     responsemsgSTR= "<@!{}>".format(message.author.id)+responseDICT[userIDSTR]["n"]
                     del responseDICT[userIDSTR]
@@ -65,9 +67,6 @@ async def on_message(message):
                     
             else: 
                 responseDICT[str(message.author.id)] = medBot(msgSTR)["result"]
-                await message.channel.send(medBot(msgSTR)["msg"])
-                
-
-
-
+                await message.channel.send("<@!{}>".format(message.author.id)+medBot(msgSTR)["msg"])
+   
 client.run(DISCORD_TOKEN)

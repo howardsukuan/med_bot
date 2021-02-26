@@ -43,6 +43,13 @@
 """
 
 import requests
+from account_info import accountInfoDICT
+from dictionay import departmentDICT
+from dictionay import emergencyLIST
+from dictionay import otherLIST
+import logging
+logging.basicConfig(level=logging.DEBUG)
+
 try:
     from intent import Loki_Emergency
     from intent import Loki_Gender
@@ -56,8 +63,8 @@ except:
 
 
 LOKI_URL = "https://api.droidtown.co/Loki/BulkAPI/"
-USERNAME = ""
-LOKI_KEY = ""
+USERNAME = accountInfoDICT["USERNAME"]
+LOKI_KEY = accountInfoDICT["LOKI_KEY"]
 
 # 意圖過濾器說明
 # INTENT_FILTER = []        => 比對全部的意圖 (預設)
@@ -190,52 +197,41 @@ def runLoki(inputLIST):
         resultDICT = {"msg": lokiRst.getMessage()}
     return resultDICT
 
-#FindDepartment科別查詢用字典
-departmentDICT = {
-    "耳鼻喉科": ["顎", "耳朵", "鼻子", "鼻", "咽喉", "鼻涕", "喉嚨", "脖子", "耳", "鼻樑", "鼻腔內", "耳鼻喉", "鼻炎", "打呼", "打鼾", "扁桃腺", "流鼻血", "過敏性鼻炎"],
-    "家醫科": ["喉部", "頸椎", "嘴", "風池穴", "小腿", "臉頰", "屁股", "眉間", "頭", "頸部", "腹瀉", "家醫", "頭痛", "頭暈", "咳嗽", "噁心", "小拇指", "下背", "發燒", "疲勞", "疲倦", "暈眩", "背", "累","臂"],
-    "腸胃科": ["肚子", "腸胃", "胃"],
-    "婦產科": ["陰部", "婦產", "乳房", "乳腺", "陰道"],
-    "一般內科": ["腹", "高血壓", "黃疸", "一般內科"],
-    "心臟內科": ["心臟", "瓣膜", "心", "心導管手術", "心跳"],
-    "胸腔外科": ["胸口", "胸"],
-    "眼科": ["眼睛", "飛蚊症", "眼"],
-    "泌尿科": ["泌尿", "小便", "尿"],
-    "內分泌科": ["賀爾蒙"],
-    "神經內科": ["神經內", "麻痺"],
-    "胸腔內科": ["胸腔內"],
-    "牙科": ["牙齒"],
-    "皮膚科": ["掉頭髮","皮膚","脂肪瘤","痘痘", "禿"],
-    "身心科":["心情","睡眠", "瘋", "身心"],
-    "骨科":["骨科", "骨頭"]
-    }
-#FindDepartment危急情況字典
-emergencyLIST = ["大量出血","昏迷","失去意識","沒有心跳","血流不止","停止呼吸"]
-#humanLIST = ["媽媽", "爸爸", "姨", "姑", "爹", "娘", "朋友", "夥伴", "鄰居"]
-otherLIST = ["狗", "貓", "鳥", "鼠"]
 #根據部位或症狀查詢科別，回傳科別字串
 def FindDepartment(inputSTR): 
     medDICT = {"dept":[]}
     resultDICT = runLoki([inputSTR])
-    print(resultDICT)
+    logging.debug(f"show resultDICT {resultDICT}")
+    #print(f"{resultDICT} first")
     try:     
         for e in departmentDICT.keys():
+            logging.debug(f"here - bodypart")
+            #print("here 1")
             if resultDICT["bodypart"]  in departmentDICT[e]:
                 medDICT["dept"].append(e)
-                print(medDICT)
+                logging.debug(f"show medDICT {medDICT['dept']}bodypart")
+                #print(f"{medDICT['dept']} ver 1")
     except:
+        logging.debug("here bodypart not pass")
         pass 
     try:
         for e in departmentDICT.keys():
+            logging.debug("here - symptom")
+            #print("here 2 ")
+            #print(departmentDICT.keys())
             if resultDICT["symptom"] in departmentDICT[e]:
                 medDICT["dept"].append(e)
-                print(medDICT)
-    except:       
+                logging.debug(f"show medDICT {medDICT['dept']} symptom")
+                #print(f"{medDICT['dept']} ver 2")
+    except:
+        logging.debug("here symptom not pass")
+        #print("here 3")
         pass
     
     if medDICT["dept"] == []:
         medDICT["dept"].append("試試看家醫科")
-        print("test") 
+        logging.debug("NONE")
+        #print("test ha ha ha ") 
     if any (eme in inputSTR for eme in emergencyLIST):
         medDICT["dept"].append("請立即打119")
     
@@ -251,13 +247,11 @@ def FindDepartment(inputSTR):
 # in this function, we set a dictionary for each response
 # a special key 'result' is set to the dictionary which appears when the user mentions about their children
 def Result(inputSTR):
-    try:
-        if any(other in inputSTR for other in otherLIST):
-            responseDICT = {"msg": "你確定是人類嗎？填入y/n",
-                            "result":{"y":"請去{dep}".format(dep=FindDepartment(inputSTR))}, "n":"目前只有建制人的醫療分科"}
+    if any(other in inputSTR for other in otherLIST):
+        responseDICT = {"msg": "你確定是人類嗎？填入y/n",
+                        "result":{"y":"請去{dep}".format(dep=FindDepartment(inputSTR)), "n":"目前只有建制人的醫療分科"}}
             #{"result": "目前只有建制人的醫療分科"}
-                     
-    except:
+    else:
         responseDICT = {"msg": "請問是否為12歲(包含12)以下的小孩?填入y/n",
                         "result":{"y":"可以去小兒科看診", "n":"請去{dep}".format(dep=FindDepartment(inputSTR))}}
     return responseDICT    
@@ -265,5 +259,5 @@ def Result(inputSTR):
         
     
 if __name__ == "__main__":
-    inputSTR = "貓貓骨頭裂了"
+    inputSTR = "我心跳很快"
     print(Result(inputSTR))
