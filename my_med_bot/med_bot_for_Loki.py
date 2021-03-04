@@ -44,9 +44,9 @@
 
 import requests
 from account_info import accountInfoDICT
-from dictionary import departmentDICT
-from dictionary import emergencyLIST
-from dictionary import otherLIST
+from reference import departmentDICT
+from reference import emergencyLIST
+from reference import otherLIST
 import logging
 logging.basicConfig(level=logging.DEBUG)
 
@@ -237,10 +237,12 @@ def FindDepartment(inputSTR):
                     medDICT["dept"].append(e)
                 else:
                     pass
-    if medDICT["dept"] == []:
-        medDICT["dept"].append("試試看家醫科")
+
     if any (eme in inputSTR for eme in emergencyLIST):
         medDICT["dept"].append("請立即打119")
+    
+    if medDICT["dept"] == []:
+        medDICT["dept"].append("試試看家醫科")    
     
     if len(medDICT["dept"]) == 2 and medDICT["dept"][0] == medDICT["dept"][1]:
         medDICT["dept"].append(medDICT["dept"][0])
@@ -254,18 +256,19 @@ def FindDepartment(inputSTR):
 # in this function, we set a dictionary for each response
 # a special key 'result' is set to the dictionary which appears when the user mentions about their children
 def Result(inputSTR):
+    dep=FindDepartment(inputSTR)
     if any(other in inputSTR for other in otherLIST):
-        responseDICT = {"msg": "你確定是人類嗎？填入y/n",
-                        "result":{"y":"請去{dep}".format(dep=FindDepartment(inputSTR)), "n":"目前只有建制人的醫療分科"}}
+        responseDICT = {"msg": "你確定是人類嗎？ 目前只有建制人的醫療分科\n如果真的是人類請去{}".format(dep)}
             #{"result": "目前只有建制人的醫療分科"}
+    elif "試試" in dep:
+        responseDICT = {"msg": "請多說說你不舒服的地方，要不然你可以試看看家醫科"}
     else:
-        responseDICT = {"msg": "請問是否為12歲(包含12)以下的小孩?填入y/n",
-                        "result":{"y":"可以去小兒科看診", "n":"請去{dep}".format(dep=FindDepartment(inputSTR))}}
+        responseDICT = {"msg": "請去{}".format(dep)}
     return responseDICT    
         
         
     
 if __name__ == "__main__":
-    inputSTR = "嬤嬤暈倒了"
+    inputSTR = "我心情不好"
     print(runLoki([inputSTR ]))
     print(Result(inputSTR))

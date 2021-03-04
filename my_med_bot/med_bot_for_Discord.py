@@ -36,38 +36,15 @@ async def on_ready():
     
 @client.event
 async def on_message(message):
-    endconversationLIST = ["謝謝","謝啦","thx","ok","掰","bye","掰掰","好喔","你可以退下了"]
-    yesLIST = ["y","yes","yup","yeah","是","對"]
-    noLIST = ["n","no","nope","nah","不是","不"]
-    dontknowLIST = ["idontknow","我不知道","不知道"]    
+    endconversationLIST = ["謝謝","謝啦","thx","ok","掰","bye","掰掰","好喔","你可以退下了"]   
     msgSTR = message.content.replace("<@!{}> ".format(client.user.id),"").lower()
     if "<@!{}>".format(client.user.id) in message.content or "<@{}>".format(client.user.id) in message.content:
-        if any (e == msgSTR  for e in endconversationLIST ):
-            response = "<@!{}>好的:)".format(message.author.id)
-            await message.channel.send(response)
-        #以下else之後程式碼連續前一輪對話 回傳資訊啟動新的一輪新對話
+        if msgSTR == "":
+            await message.channel.send("<@!{}>您好\n請簡述您的症狀:)\n如果患者為12歲以下孩童請至小兒科".format(message.author.id))
+        elif any (e == msgSTR  for e in endconversationLIST ):
+            await message.channel.send("<@!{}>好的:)".format(message.author.id))
+        #medBot回傳string像是:請去家醫科
         else:
-            if any (e == msgSTR  for e in yesLIST):
-                userIDSTR = str(message.author.id)
-                if userIDSTR in responseDICT:
-                    responsemsgSTR = "<@!{}>".format(message.author.id)+responseDICT[userIDSTR]["y"]
-                    del responseDICT[userIDSTR]
-                    await message.channel.send(responsemsgSTR)
-            elif any (e == msgSTR  for e in noLIST):
-                userIDSTR = str(message.author.id)
-                if userIDSTR in responseDICT:
-                    responsemsgSTR = "<@!{}>".format(message.author.id)+responseDICT[userIDSTR]["n"]
-                    del responseDICT[userIDSTR]
-                    await message.channel.send(responsemsgSTR)
-            elif any (e == msgSTR  for e in dontknowLIST):
-                userIDSTR = str(message.author.id)
-                if userIDSTR in responseDICT:
-                    responsemsgSTR= "<@!{}>".format(message.author.id)+responseDICT[userIDSTR]["n"]
-                    del responseDICT[userIDSTR]
-                    await message.channel.send(responsemsgSTR)                
-                    
-            else: 
-                responseDICT[str(message.author.id)] = medBot(msgSTR)["result"]
-                await message.channel.send("<@!{}>".format(message.author.id)+medBot(msgSTR)["msg"])
+            await message.channel.send("<@!{}>".format(message.author.id)+medBot(msgSTR)["msg"])
    
 client.run(DISCORD_TOKEN)
