@@ -15,10 +15,9 @@
 1. 加入 my_med_bot 到discord 
    邀請Link: https://discord.gg/yRCp2PjF
    
-   
-2.Tag my_med_bot, 例如 @my_med_bot 
+2. Tag my_med_bot, 例如 @my_med_bot 
 
-4. 接著和 my_med_bot 說你哪裡不舒服，可以多說說你是什麼病症，或是哪邊不舒服
+3. 接著和 my_med_bot 說你哪裡不舒服，可以多說說你是什麼病症，或是哪邊不舒服
    
    @my_med_bot 我喉嚨痛
    
