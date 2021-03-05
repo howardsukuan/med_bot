@@ -9,10 +9,10 @@ from flask import Flask
 from flask import request
 from flask import jsonify
 from line_sdk import Linebot
-from med_bot import Result as medBot
-
-LINE_ACCESS_TOKEN   = "aAomwvgmYBfnyZKx3u4+6kQEuCY3aA//QVYg1M6kVBLG3N5KnyaHoj4uHa6LdTKSxfFkw0S+eWqntRJ0ao0DgVPIlVBVcuqUkspr/Vb9Mq2JCuhdjMc4voR/l6J/zZeE6Rzw8AhhB1hmjzhPSS+mMgdB04t89/1O/w1cDnyilFU="
-LINE_CHANNEL_SECRET = "71b18cd040f6602a0e4e96b35c1a9a52"
+from med_bot_for_Loki import Result as medBot
+from account_info import accountInfoDICT
+LINE_ACCESS_TOKEN   = accountInfoDICT["LINE_ACCESS_TOKEN"]
+LINE_CHANNEL_SECRET = accountInfoDICT["LINE_CHANNEL_SECRET"]
 
 app = Flask(__name__)
 
@@ -37,9 +37,8 @@ def webhook():
             if dataDICT["status"]:
                 if dataDICT["type"] == "message":
                     # Send Message
-                    reply = medBot(dataDICT["message"])#"可以去腸胃科看診"
-                    print("debug.msg:{}".format(reply))
-                    linebot.respText(dataDICT["replyToken"], reply) #回應的內容 放在裡面dataDICT
+                    #linebot.respText(medBot(dataDICT["message"]), dataDICT["message"])
+                    linebot.respText(dataDICT["replyToken"],medBot(dataDICT["message"])["msg"])#回應的內容 放在裡面dataDICT
                     #從這裡接Loki
 
         return jsonify({"status": True, "msg": "Line Webhook Success."})
