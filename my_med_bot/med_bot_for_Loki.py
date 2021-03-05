@@ -239,7 +239,7 @@ def FindDepartment(inputSTR):
                     pass
 
     if any (eme in inputSTR for eme in emergencyLIST):
-        medDICT["dept"].append("請立即打119")
+        medDICT["dept"].append("立即打119")
     
     if medDICT["dept"] == []:
         medDICT["dept"].append("試試看家醫科")    
@@ -258,17 +258,17 @@ def FindDepartment(inputSTR):
 def Result(inputSTR):
     dep=FindDepartment(inputSTR)
     if any(other in inputSTR for other in otherLIST):
-        responseDICT = {"msg": "你確定是人類嗎？ 目前只有建制人的醫療分科\n如果真的是人類請去{}".format(dep)}
+        responseDICT = {"msg": "你確定是人類嗎？ 目前只有建制人的醫療分科\n如果真的是人類請去{}\n12歲以下孩童請去小兒科".format(dep)}
             #{"result": "目前只有建制人的醫療分科"}
     elif "試試" in dep:
-        responseDICT = {"msg": "請多說說你不舒服的地方，要不然你可以試看看家醫科"}
+        responseDICT = {"msg": "請多說說你不舒服的地方，要不然你可以試看看家醫科\n12歲以下孩童請去小兒科"}
     else:
-        responseDICT = {"msg": "請去{}".format(dep)}
+        responseDICT = {"msg": "請去{}\n12歲以下孩童請去小兒科".format(dep)}
     return responseDICT    
         
         
     
 if __name__ == "__main__":
-    inputSTR = "我心情不好"
+    inputSTR = "我肚子痛"
     print(runLoki([inputSTR ]))
     print(Result(inputSTR))

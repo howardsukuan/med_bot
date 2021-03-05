@@ -7,7 +7,7 @@ from account_info import accountInfoDICT
 
 DISCORD_TOKEN=accountInfoDICT["DISCORD_TOKEN"]
 DISCORD_GUILD=accountInfoDICT["DISCORD_GUILD"]
-BOT_NAME = "my_med_bot"
+BOT_NAME = "Med_Bot"
 #DISCORD_TOKEN=""
 #DISCORD_GUILD=""
 #BOT_NAME = "my_med_bot"
@@ -37,7 +37,7 @@ async def on_ready():
 @client.event
 async def on_message(message):
     endconversationLIST = ["謝謝","謝啦","thx","ok","掰","bye","掰掰","好喔","你可以退下了"]   
-    msgSTR = message.content.replace("<@!{}> ".format(client.user.id),"").lower()
+    msgSTR = message.content.replace("<@!{}> ".format(client.user.id),"").lower().strip()
     if "<@!{}>".format(client.user.id) in message.content or "<@{}>".format(client.user.id) in message.content:
         if msgSTR == "":
             await message.channel.send("<@!{}>您好\n請簡述您的症狀:)\n如果患者為12歲以下孩童請至小兒科".format(message.author.id))
