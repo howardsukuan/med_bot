@@ -12,20 +12,22 @@
 你是怎麼問醫院服務台的人，就怎麼問看病小幫手!!!
 
 ## 使用步驟
-1. 加入 my_med_bot 到discord 
+1. 安裝Discord
+   請到以下連結下載Discord: https://discord.com/
+   
+2. 下載完成後請申請帳號
+   
+4. 加入 my_med_bot 到discord 
    邀請Link: https://discord.gg/yRCp2PjF
    
-2. Tag my_med_bot, 例如 @my_med_bot 
+5. 使用@my_med_bot呼叫機器人來幫忙~
 
-3. 接著和 my_med_bot 說你哪裡不舒服，可以多說說你是什麼病症，或是哪邊不舒服
+6. 接著和 my_med_bot 說你哪裡不舒服，可以多說說你是什麼病症，或是哪邊不舒服，接下來就med bot 就會和你說你可以去哪一科看診喔!
    
-   @my_med_bot 我喉嚨痛
    
   
-  ![喉嚨痛](https://upload.cc/i1/2021/01/29/W4ChRr.png)
+  ![喉嚨痛](https://upload.cc/i1/2021/03/05/Z3qtp0.png)
    
-   
-3. 接下來就med bot 就會和你說你可以去哪一科看診喔~ 
 
 ## 訓練文本
 1. 我們是參考以下網站
