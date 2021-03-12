@@ -15,12 +15,12 @@
 
 ----
 # 目錄 :
-1. GitHub 檔案總管
-2. 使用者說明：想要使用看看，請看使用者說明
-3. 開發者說明：想利用我們的方案再進行開發，請參考開發者說明
+1. 檔案總攬
+2. 使用者說明：希望可以直接適用，請看使用者說明
+3. 開發者說明：想利用本方案再進行開發，請參考開發者說明
 4. 文本訓練方式
 
-# 1. 檔案總管
+# 1. 檔案總攬
 在這個repository 中總共有3個檔案夾，分別是
 1. Discord_bot：把My MedBot 放入Discord 的必要程式和檔案
 2. LINE_bot：把My MedBot 放入 LINE 的必要程式和檔案
@@ -28,8 +28,8 @@
 
 # 2. 使用者說明
 ## 環境
-1. 安裝Discord，需要有這個平台 
-2. 安裝Line，需要這個平台
+1. 安裝Discord
+2. 安裝Line
 
 ## 使用Discord: 步驟解說
 1. 安裝Discord
@@ -61,8 +61,9 @@
 ## 環境設定
 1. 註冊LOKI
 2. 註冊 LINE Developer 
+3. 註冊 Discord Portal 
 
-## 註冊LOKI 使用說明
+## LOKI 使用說明
 1. 請到卓騰科技網站 (https://api.droidtown.co/)
 2. 連結應用服務，然後選擇LOKI
 
@@ -74,12 +75,21 @@
 4. 請到 Ref 文件夾中，到如下圖的地方，上傳這些ref 檔案
 <img src="https://upload.cc/i1/2021/03/12/3KDYbW.png" width="50%" height="50%" />
 
-## 註冊LINE DEVELOPER 使用說明
+## LINE DEVELOPER 使用說明
 1. 請至 LINE DEVELOPER (https://developers.line.biz/zh-hant/) ，以您的Line帳號登入
 2. 登入之後，按product，選擇 Message Api 
 3. create api 這個畫面中，填入必要內容
-4. 在Basic setting 中可以找到您的 LINE secret，請貼到 Line > line_app 中 LINE secret 地方
-5. 在Messaging API 中可以到到您的 LINE token，請貼到 Line > line_app 中 LINE token 地方
+4. 在Basic setting 中可以找到您的 LINE secret，請貼到 Line_BOT > line_app 中 LINE secret 地方
+5. 在Messaging API 中可以到到您的 LINE token，請貼到 Line_BOT > line_app 中 LINE token 地方
+
+## Discord Portal 使用說明
+1. 請至 Discord Portal (https://discord.com/login?redirect_to=%2Fdevelopers) ，使用您的Discord 中帳號登入
+2. 看到右上角，按下 new application 
+3. 填入您的Discord Bot 名字 
+4. 看到左邊的 OAuth2，點下去可以看到 SCOPE 中選 BOT
+
+5. 在OAuth2中的 BOT PERMISSION 點全部
+6. 複製 bot 的內容到 
 ----
 # 4. 文本訓練方式
 
