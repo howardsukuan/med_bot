@@ -24,7 +24,7 @@
 在這個repository 中總共有3個檔案夾，分別是
 1. Discord_bot：把My MedBot 放入Discord 的必要程式和檔案
 2. LINE_bot：把My MedBot 放入 LINE 的必要程式和檔案
-3. Ref: 這個資料夾是開發者需要用到的，裡面是已經設定好的LOKI Ref檔案 (LOKI為卓騰科技公司開發的可以用來設計聊天機器人的工具) 
+3. Ref：這個資料夾是開發者需要用到的，裡面是已經設定好的LOKI Ref檔案 (LOKI為卓騰科技公司開發的可以用來設計聊天機器人的工具) 
 
 # 2. 使用者說明
 ## 環境
