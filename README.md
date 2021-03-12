@@ -32,7 +32,7 @@
 2. [LINE](#Sixth)
 
 ----
-## <h2 id="Fifth">使用Discord: 步驟解說</h1>
+# <h2 id="Fifth">使用Discord: 步驟解說</h1>
 1. 安裝Discord
    請到以下連結下載Discord: https://discord.com/
    
@@ -49,7 +49,7 @@
 
 ---
 
-## <h2 id="Sixth">使用LINE: 步驟解說</h1>
+# <h2 id="Sixth">使用LINE: 步驟解說</h1>
 1. 安裝LINE
    請到以下連結下載LINE: https://line.me/zh-hant/
    
@@ -93,7 +93,7 @@
 5. 在OAuth2中的 BOT PERMISSION 點全部
 6. 複製 bot 的內容  
 
-## # <h1 id="Fourth">4. 文本訓練方式</h1>
+# <h1 id="Fourth">4. 文本訓練方式</h1>
 1. 我們是參考以下網站
     1) 衛生福利部台北醫院就醫指南 https://www.tph.mohw.gov.tw/?aid=12
     2) 臺大醫院 該看哪一科 https://www.ntuh.gov.tw/ntuh/Fpage.action?muid=70&fid=2972
