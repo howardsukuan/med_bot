@@ -15,11 +15,16 @@
 
 ----
 # 目錄 :
-1. 使用者說明：想要使用看看，請看使用者說明
-2. 開發者說明：想利用我們的方案再進行開發，請參考開發者說明
-3. 文本訓練方式
+1. GitHub 檔案總管
+2. 使用者說明：想要使用看看，請看使用者說明
+3. 開發者說明：想利用我們的方案再進行開發，請參考開發者說明
+4. 文本訓練方式
 
 # 1. 使用者說明
+## 環境
+1. 安裝Discord，需要有這個平台 
+2. 安裝Line，需要這個平台
+
 ## 使用Discord: 步驟解說
 1. 安裝Discord
    請到以下連結下載Discord: https://discord.com/
@@ -32,8 +37,6 @@
 5. 使用@my_med_bot呼叫機器人來幫忙~
 
 6. 接著和 my_med_bot 說你哪裡不舒服，可以多說說你是什麼病症，或是哪邊不舒服，接下來就med bot 就會和你說你可以去哪一科看診喔~
-   
-   
   
   ![喉嚨痛](https://upload.cc/i1/2021/03/05/Z3qtp0.png)
 
@@ -50,6 +53,10 @@
 
 # 2. 開發者說明
 ## 環境設定
+1. 註冊LOKI
+2. 註冊 LINE Developer 
+
+## 註冊LOKI 使用說明
 1. 請到卓騰科技網站 (https://api.droidtown.co/)
 2. 連結應用服務，然後選擇LOKI
 
@@ -60,6 +67,13 @@
 
 4. 請到 Ref 文件夾中，到如下圖的地方，上傳這些ref 檔案
 <img src="https://upload.cc/i1/2021/03/12/3KDYbW.png" width="50%" height="50%" />
+
+## 註冊LINE DEVELOPER 使用說明
+1. 請至 LINE DEVELOPER (https://developers.line.biz/zh-hant/)，以您的Line 帳號登入
+2. 登入之後，按product，選擇 Message Api 
+3. create api 這個畫面中，填入必要內容
+4. 在Basic setting 中可以找到您的 LINE secret，請貼到 Line > line_app 中 LINE secret 地方
+5. 在Messaging API 中可以到到您的 LINE token，請貼到 Line > line_app 中 LINE token 地方
 ----
 ## 訓練文本
 1. 我們是參考以下網站
