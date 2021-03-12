@@ -1,4 +1,4 @@
-## 看病小幫手 My MedBot
+# 看病小幫手 My MedBot
 「肚子有點痛」
 
 「怎麼辦，心臟有點痛」
@@ -14,6 +14,23 @@
 目前可以在**Line以及Discord**找到我們的看病小幫手!
 
 ----
+# 目錄 :
+1. GitHub 檔案總管
+2. 使用者說明：想要使用看看，請看使用者說明
+3. 開發者說明：想利用我們的方案再進行開發，請參考開發者說明
+4. 文本訓練方式
+
+# 1. 檔案總管
+在這個repository 中總共有3個檔案夾，分別是
+1. Discord_bot：把My MedBot 放入Discord 的必要程式和檔案
+2. LINE_bot：把My MedBot 放入 LINE 的必要程式和檔案
+3. Ref: 這個資料夾是開發者需要用到的，裡面是已經設定好的LOKI Ref檔案 (LOKI為卓騰科技公司開發的可以用來設計聊天機器人的工具) 
+
+# 2. 使用者說明
+## 環境
+1. 安裝Discord，需要有這個平台 
+2. 安裝Line，需要這個平台
+
 ## 使用Discord: 步驟解說
 1. 安裝Discord
    請到以下連結下載Discord: https://discord.com/
@@ -26,8 +43,6 @@
 5. 使用@my_med_bot呼叫機器人來幫忙~
 
 6. 接著和 my_med_bot 說你哪裡不舒服，可以多說說你是什麼病症，或是哪邊不舒服，接下來就med bot 就會和你說你可以去哪一科看診喔~
-   
-   
   
   ![喉嚨痛](https://upload.cc/i1/2021/03/05/Z3qtp0.png)
 
@@ -41,8 +56,33 @@
    ![](https://upload.cc/i1/2021/03/05/n9Ekzv.png)
 
 5. 接著和 my_med_bot 說你哪裡不舒服，可以多說說你是什麼病症，或是哪邊不舒服，接下來就med bot 就會和你說你可以去哪一科看診喔~
-   
+
+# 3. 開發者說明
+## 環境設定
+1. 註冊LOKI
+2. 註冊 LINE Developer 
+
+## 註冊LOKI 使用說明
+1. 請到卓騰科技網站 (https://api.droidtown.co/)
+2. 連結應用服務，然後選擇LOKI
+
+<img src="https://upload.cc/i1/2021/03/12/CO61Ua.png" width="50%" height="50%" />
+
+3. 進入LOKI後，創一個新的專案，取名為 med_bot
+<img src="https://upload.cc/i1/2021/03/12/cvlfjG.png" width="50%" height="50%" />
+
+4. 請到 Ref 文件夾中，到如下圖的地方，上傳這些ref 檔案
+<img src="https://upload.cc/i1/2021/03/12/3KDYbW.png" width="50%" height="50%" />
+
+## 註冊LINE DEVELOPER 使用說明
+1. 請至 LINE DEVELOPER (https://developers.line.biz/zh-hant/)，以您的Line 帳號登入
+2. 登入之後，按product，選擇 Message Api 
+3. create api 這個畫面中，填入必要內容
+4. 在Basic setting 中可以找到您的 LINE secret，請貼到 Line > line_app 中 LINE secret 地方
+5. 在Messaging API 中可以到到您的 LINE token，請貼到 Line > line_app 中 LINE token 地方
 ----
+# 4. 文本訓練方式
+
 ## 訓練文本
 1. 我們是參考以下網站
     1) 衛生福利部台北醫院就醫指南 https://www.tph.mohw.gov.tw/?aid=12
@@ -56,3 +96,4 @@
    2) 病症: 只要是和病症相關，或是斷詞後和身體部位斷在一起，例如頭痛，我們就會歸類在此類。
 3. 把這兩類句子放入卓騰科技的Loki。接著Loki 就可以把那些句子斷詞，然後整理成不同的句型。依句型分類。
 4. 接著把這些問診句子和我們查的資料用python 串接起來，然後回復使用者可以看哪一科。
+
