@@ -15,18 +15,18 @@
 
 ----
 # 目錄 :
-1. GitHub 檔案總管
-2. 使用者說明：想要使用看看，請看使用者說明
-3. 開發者說明：想利用我們的方案再進行開發，請參考開發者說明
-4. 文本訓練方式
+1. [GitHub檔案總覽](#First)
+2. [使用者說明](#Second)
+3. [開發者說明](#Third)
+4. [文本訓練方式](#Fourth)
 
-# 1. 檔案總管
+# <h1 id="First">1. GitHub檔案總覽</h1>
 在這個repository 中總共有3個檔案夾，分別是
 1. Discord_bot：把My MedBot 放入Discord 的必要程式和檔案
 2. LINE_bot：把My MedBot 放入 LINE 的必要程式和檔案
 3. Ref：這個資料夾是開發者需要用到的，裡面是已經設定好的LOKI Ref檔案 (LOKI為卓騰科技公司開發的可以用來設計聊天機器人的工具) 
 
-# 2. 使用者說明
+# <h1 id="First">2. 使用者說明</h1>
 ## 環境
 1. 安裝Discord，需要有這個平台 
 2. 安裝Line，需要這個平台
@@ -57,7 +57,7 @@
 
 5. 接著和 my_med_bot 說你哪裡不舒服，可以多說說你是什麼病症，或是哪邊不舒服，接下來就med bot 就會和你說你可以去哪一科看診喔~
 
-# 3. 開發者說明
+# <h1 id="Third">3. 開發者說明</h1>
 ## 環境設定
 1. 註冊LOKI
 2. 註冊 LINE Developer 
@@ -80,8 +80,8 @@
 3. create api 這個畫面中，填入必要內容
 4. 在Basic setting 中可以找到您的 LINE secret，請貼到 Line > line_app 中 LINE secret 地方
 5. 在Messaging API 中可以到到您的 LINE token，請貼到 Line > line_app 中 LINE token 地方
-----
-# 4. 文本訓練方式
+
+# <h1 id="Fourth">4. 文本訓練方式</h1>
 
 ## 訓練文本
 1. 我們是參考以下網站
