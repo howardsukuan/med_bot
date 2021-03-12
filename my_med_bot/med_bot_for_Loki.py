@@ -259,8 +259,7 @@ def Result(inputSTR):
     dep=FindDepartment(inputSTR)
     if any(other in inputSTR and "咬" not in inputSTR for other in otherLIST):
         responseDICT = {"msg": "你確定是人類嗎？ 目前只有建制人的醫療分科\n如果真的是人類請去{}\n12歲以下孩童請去小兒科".format(dep)}
-    if any(other in inputSTR and "抓" not in inputSTR for other in otherLIST):
-        responseDICT = {"msg": "你確定是人類嗎？ 目前只有建制人的醫療分科\n如果真的是人類請去{}\n12歲以下孩童請去小兒科".format(dep)}    
+    
     elif "試試" in dep:
         responseDICT = {"msg": "請多說說你不舒服的地方，要不然你可以試看看家醫科\n12歲以下孩童請去小兒科"}
     else:
@@ -270,6 +269,6 @@ def Result(inputSTR):
         
     
 if __name__ == "__main__":
-    inputSTR = "我被貓抓"
+    inputSTR = "我被貓咬"
     print(runLoki([inputSTR ]))
     print(Result(inputSTR))
