@@ -298,7 +298,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
         if "雞眼" in inputSTR:
             resultDICT["symptom"] = "皮膚"
         if "屁眼" in inputSTR:
-            resultDICT["symptom"] = "肝膽腸胃"
+            resultDICT["symptom"] = "直腸外科"
         if "馬眼" in inputSTR:
             resultDICT["symptom"] = "泌尿"
             

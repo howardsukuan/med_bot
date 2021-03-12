@@ -257,9 +257,9 @@ def FindDepartment(inputSTR):
 # a special key 'result' is set to the dictionary which appears when the user mentions about their children
 def Result(inputSTR):
     dep=FindDepartment(inputSTR)
-    if any(other in inputSTR for other in otherLIST):
+    if any(other in inputSTR and "咬" not in inputSTR for other in otherLIST):
         responseDICT = {"msg": "你確定是人類嗎？ 目前只有建制人的醫療分科\n如果真的是人類請去{}\n12歲以下孩童請去小兒科".format(dep)}
-            #{"result": "目前只有建制人的醫療分科"}
+    
     elif "試試" in dep:
         responseDICT = {"msg": "請多說說你不舒服的地方，要不然你可以試看看家醫科\n12歲以下孩童請去小兒科"}
     else:
@@ -269,6 +269,6 @@ def Result(inputSTR):
         
     
 if __name__ == "__main__":
-    inputSTR = "我被狗咬"
+    inputSTR = "我被屁眼痛"
     print(runLoki([inputSTR ]))
     print(Result(inputSTR))
