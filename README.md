@@ -68,13 +68,13 @@
 3. 註冊 Discord Portal 
 4. python 3.6 以上
 
-## LOKI 使用說明
-1. 請到卓騰科技網站 (https://api.droidtown.co/)
-2. 連結應用服務，然後選擇LOKI
+## Loki 使用說明
+1. 請到 driodtown 網站 (https://api.droidtown.co/)
+2. 連結應用服務，然後選擇Loki
 
 <img src="https://upload.cc/i1/2021/03/12/CO61Ua.png" width="50%" height="50%" />
 
-3. 進入LOKI後，創一個新的專案，取名為 med_bot
+3. 進入Loki後，創一個新的專案，取名為 med_bot
 <img src="https://upload.cc/i1/2021/03/12/cvlfjG.png" width="50%" height="50%" />
 
 4. 請到 Ref 文件夾中，到如下圖的地方，上傳這些ref 檔案
