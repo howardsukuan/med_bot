@@ -24,7 +24,7 @@
 在這個repository 中總共有3個檔案夾，分別是
 1. Discord_bot：把My MedBot 放入Discord 的必要程式和檔案
 2. LINE_bot：把My MedBot 放入 LINE 的必要程式和檔案
-3. Ref：這個資料夾是開發者需要用到的，裡面是已經設定好的LOKI Ref檔案 (LOKI為卓騰科技公司開發的可以用來設計聊天機器人的工具) 
+3. Ref：這個資料夾是開發者需要用到的，裡面是已經設定好的LOKI Ref檔案 (Loki為 droidtown 的可以用來設計聊天機器人的工具) 
 
 # <h1 id="First">2. 使用者說明</h1>
 本機器人可於以下兩平台執行
@@ -55,7 +55,8 @@
    
 2. 下載完成後請申請帳號
    
-4. 請掃描以下QRcode
+4. 請掃描以下QRcode 
+
    ![](https://upload.cc/i1/2021/03/05/n9Ekzv.png)
 
 5. 接著和 my_med_bot 說你哪裡不舒服，可以多說說你是什麼病症，或是哪邊不舒服，接下來就med bot 就會和你說你可以去哪一科看診喔~
