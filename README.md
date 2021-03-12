@@ -20,7 +20,7 @@
 3. 開發者說明：想利用本方案再進行開發，請參考開發者說明
 4. 文本訓練方式
 
-# 1. 檔案總攬
+# 1. 檔案總覽
 在這個repository 中總共有3個檔案夾，分別是
 1. Discord_bot：把My MedBot 放入Discord 的必要程式和檔案
 2. LINE_bot：把My MedBot 放入 LINE 的必要程式和檔案
