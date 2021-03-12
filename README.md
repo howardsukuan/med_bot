@@ -20,7 +20,13 @@
 3. 開發者說明：想利用我們的方案再進行開發，請參考開發者說明
 4. 文本訓練方式
 
-# 1. 使用者說明
+# 1. 檔案總管
+在這個repository 中總共有3個檔案夾，分別是
+1. Discord_bot：把My MedBot 放入Discord 的必要程式和檔案
+2. LINE_bot：把My MedBot 放入 LINE 的必要程式和檔案
+3. Ref: 這個資料夾是開發者需要用到的，裡面是已經設定好的LOKI Ref檔案 (LOKI為卓騰科技公司開發的可以用來設計聊天機器人的工具) 
+
+# 2. 使用者說明
 ## 環境
 1. 安裝Discord，需要有這個平台 
 2. 安裝Line，需要這個平台
@@ -51,7 +57,7 @@
 
 5. 接著和 my_med_bot 說你哪裡不舒服，可以多說說你是什麼病症，或是哪邊不舒服，接下來就med bot 就會和你說你可以去哪一科看診喔~
 
-# 2. 開發者說明
+# 3. 開發者說明
 ## 環境設定
 1. 註冊LOKI
 2. 註冊 LINE Developer 
@@ -75,6 +81,8 @@
 4. 在Basic setting 中可以找到您的 LINE secret，請貼到 Line > line_app 中 LINE secret 地方
 5. 在Messaging API 中可以到到您的 LINE token，請貼到 Line > line_app 中 LINE token 地方
 ----
+# 4. 文本訓練方式
+
 ## 訓練文本
 1. 我們是參考以下網站
     1) 衛生福利部台北醫院就醫指南 https://www.tph.mohw.gov.tw/?aid=12
