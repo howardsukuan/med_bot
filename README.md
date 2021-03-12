@@ -15,12 +15,12 @@
 
 ----
 # 目錄 :
-1. [GitHub檔案總覽](#First)
+1. [檔案總覽](#First)
 2. [使用者說明](#Second)
 3. [開發者說明](#Third)
 4. [文本訓練方式](#Fourth)
 
-# <h1 id="First">1. GitHub檔案總覽</h1>
+# <h1 id="First">1.檔案總覽</h1>
 在這個repository 中總共有3個檔案夾，分別是
 1. Discord_bot：把My MedBot 放入Discord 的必要程式和檔案
 2. LINE_bot：把My MedBot 放入 LINE 的必要程式和檔案
