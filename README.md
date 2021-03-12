@@ -65,6 +65,7 @@
 1. 註冊LOKI
 2. 註冊 LINE Developer 
 3. 註冊 Discord Portal 
+4. python 3.6 以上
 
 ## LOKI 使用說明
 1. 請到卓騰科技網站 (https://api.droidtown.co/)
@@ -79,19 +80,9 @@
 <img src="https://upload.cc/i1/2021/03/12/3KDYbW.png" width="50%" height="50%" />
 
 ## LINE DEVELOPER 使用說明
-1. 請至 LINE DEVELOPER (https://developers.line.biz/zh-hant/) ，以您的Line帳號登入
-2. 登入之後，按product，選擇 Message Api 
-3. create api 這個畫面中，填入必要內容
-4. 在Basic setting 中可以找到您的 LINE secret，請貼到 Line > line_app 中 LINE secret 地方
-5. 在Messaging API 中可以到到您的 LINE token，請貼到 Line > line_app 中 LINE token 地方
-
+[請詳見資料夾](https://github.com/howardsukuan/med_bot/tree/master/LINE_bot)
 ## Discord Portal 使用說明
-1. 請至 Discord Portal (https://discord.com/login?redirect_to=%2Fdevelopers) ，使用您的Discord 中帳號登入
-2. 看到右上角，按下 new application 
-3. 填入您的Discord Bot 名字 
-4. 看到左邊的 OAuth2，點下去可以看到 SCOPE 中選 BOT
-5. 在OAuth2中的 BOT PERMISSION 點全部
-6. 複製 bot 的內容  
+[請詳見資料夾](https://github.com/howardsukuan/med_bot/tree/master/Discord_bot)
 
 # <h1 id="Fourth">4. 文本訓練方式</h1>
 1. 我們是參考以下網站
