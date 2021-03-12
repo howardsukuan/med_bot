@@ -1,20 +1,11 @@
-# Line_bot 使用說明
+# LINE 檔案使用說明
+## 1. 檔案內容
+在這個資料夾中有一個資料夾與三個主要的.py檔案: `intent`,`line_app.py`,`line_sdk.py`,`reference.py`
 
-# 使用者說明
-## 使用Line: 步驟解說
-1. 安裝Line
-   請到以下連結下載Line: https://line.me/zh-hant/
-   
-2. 下載完成後請申請帳號
-   
-4. 請掃描以下QRcode
-   ![](https://upload.cc/i1/2021/03/05/n9Ekzv.png)
+----
+## 2. 環境設定
+如果想要在LINE上面建構自己的chatbot，請參考以下步驟
 
-5. 接著和 my_med_bot 說你哪裡不舒服，可以多說說你是什麼病症，或是哪邊不舒服，接下來就med bot 就會和你說你可以去哪一科看診喔~
-
-# 開發者說明
-
-## LINE DEVELOPER 使用說明
 1. 請至 LINE DEVELOPER (https://developers.line.biz/zh-hant/) ，以您的Line帳號登入
 2. 登入之後，按product，選擇 Message Api ，並按下 START
 
@@ -51,4 +42,24 @@
 <img src="https://upload.cc/i1/2021/03/12/rb2x0V.png" width="50%" height="50%" />
 
 7. 如果 Web hook 是顯示成功，那這樣這個聊天機器人就可以在LINE中運作了 
+
+
+----
+
+## 3. 檔案內容
+###  `intent`資料夾
+這個資料夾存取了兩個intent，分別是body_part以及symptom，其功能是依據身體部位(body_part)或身體病症(symptom)
+
+### `line_app.py`  
+本程式用於連接 `med_bot_for_Loki.py`與line的聊天機器人。
+
+### `line_sdk.py`
+本程式置放LINE chatbot 需要的內容
+
+
+### `med_bot_for_Loki.py`
+本成語用於串接Loki的intents，主要有三個functions:`RunLoki`、`FindDepartment`以及`Result`，`RunLoki`功能為與線上Loki進行連結並偵測意圖，也會進一步回傳使用者標記的參數。`FindDepartment`功能為將`RunLoki`回傳的參數與`reference.py`裡面之字典檔進行比對，以找出病症或身體部位所對應知科別。`Result`則將最後的結果存成另一個字典檔，並於`med_bot_for_discord.py`中被imported。
+
+### `reference.py`
+本檔案儲存所有在前述兩張script所需的LIST與DICT。
 
