@@ -5,8 +5,7 @@
 ----
 ## 2. 環境設定
 
-如果想要在discord上面建構自己的chatbot請參考以下連結: 
-https://realpython.com/how-to-make-a-discord-bot-python
+### 如果想要在discord上面建構自己的chatbot請參考以下連結: https://realpython.com/how-to-make-a-discord-bot-python
 ----
 
 ## 3. 檔案內容
