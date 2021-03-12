@@ -52,9 +52,12 @@
 ## 環境設定
 1. 請到卓騰科技網站 (https://api.droidtown.co/)
 2. 連結應用服務，然後選擇LOKI
-![Loki icon](https://upload.cc/i1/2021/03/12/CO61Ua.png)
+
+<img src="https://upload.cc/i1/2021/03/12/CO61Ua.png" width="50%" height="50%" />
+
 4. 進入LOKI後，創一個新的專案，取名為 med_bot
-![Loki pic](https://upload.cc/i1/2021/03/12/3KDYbW.png)
+<img src="https://upload.cc/i1/2021/03/12/3KDYbW.png" width="50%" height="50%" />
+
 6. 請到 Ref 文件夾中，到如下圖的地方，上傳這些ref 檔案
 ----
 ## 訓練文本
