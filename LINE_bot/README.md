@@ -1,6 +1,6 @@
 # LINE 檔案使用說明
 ## 1. 檔案內容
-在這個資料夾中有一個資料夾與三個主要的.py檔案: `intent`,`line_app.py`,`line_sdk.py`,`reference.py`
+在這個資料夾中有一個資料夾與三個主要的.py檔案: `intent`,`line_app.py`,`line_sdk.py`,`reference.py`, `med_bot_for_Loki.py`
 
 ----
 ## 2. 環境設定
