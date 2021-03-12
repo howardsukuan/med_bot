@@ -17,6 +17,24 @@
 ## LINE DEVELOPER 使用說明
 1. 請至 LINE DEVELOPER (https://developers.line.biz/zh-hant/) ，以您的Line帳號登入
 2. 登入之後，按product，選擇 Message Api 
-3. create api 這個畫面中，填入必要內容
-4. 在Basic setting 中可以找到您的 LINE secret，請貼到 Line_BOT > line_app 中 LINE secret 地方
-5. 在Messaging API 中可以到到您的 LINE token，請貼到 Line_BOT > line_app 中 LINE token 地方
+
+<img src="https://upload.cc/i1/2021/03/12/31OUhy.png" width="50%" height="50%" />
+
+3. create api 中設定以下5項必要資訊，了解LINE Official Account Terms of Use 和 LINE official Account API Terms of Use 之後，點下Create 
+   a. Provider: 請選擇 create a new provider，然後下面的名字可以自己取名 (以本圖為例，取作 MED_BOT) 
+
+ <img src="https://upload.cc/i1/2021/03/12/i9gxDm.png" width="50%" height="50%" />
+
+   b. Channel name: 請自行取名 channel name 這裡是您LINE 的名字 
+   c. Channel description: 請描述此聊天機器人用途
+   d. Category: 請選擇您的聊天機器人的服務內容範圍 (e.g. 醫療相關) 
+   e. Subcategory: 選擇細項的內容服務
+   
+
+6. 在Basic setting 中可以找到您的 LINE secret，請貼到 line_app 檔案取代原本 accountInfoDICT["LINE_CHANNEL_SECRET"] (line 15)
+
+例如 : LINE_CHANNEL_SECRET = "your secret"
+
+8. 在Messaging API 中可以到到您的 LINE token，請貼到 line_app 檔案取代原本 accountInfoDICT["LINE_ACCESS_TOKEN"] (line 14)
+
+例如 : LINE_ACCESS_TOKEN   = ""
