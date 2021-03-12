@@ -195,6 +195,13 @@ def getResult(inputSTR, utterance, args, resultDICT):
             resultDICT["symptom"] = "婦產"
         if "頭痛" in inputSTR:
             resultDICT["symptom"] = "頭痛"
+        if "雞眼" in inputSTR:
+            resultDICT["symptom"] = "皮膚"
+        if "屁眼" in inputSTR:
+            resultDICT["symptom"] = "肝膽腸胃"
+        if "馬眼" in inputSTR:
+            resultDICT["symptom"] = "泌尿"
+        
     if utterance == "黃疸":
         # args []
         resultDICT["symptom"] = "腸胃"
@@ -288,6 +295,13 @@ def getResult(inputSTR, utterance, args, resultDICT):
             resultDICT["symptom"] = "泌尿"
         if "心跳" in inputSTR and ("慢" in inputSTR):
             resultDICT["symptom"] = "心臟內"
+        if "雞眼" in inputSTR:
+            resultDICT["symptom"] = "皮膚"
+        if "屁眼" in inputSTR:
+            resultDICT["symptom"] = "肝膽腸胃"
+        if "馬眼" in inputSTR:
+            resultDICT["symptom"] = "泌尿"
+            
             
     if utterance == "手術傷口復發了":
         # args [] 
@@ -297,24 +311,24 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "[我]眼睛脫窗了":
         # args [我]
         if "眼睛" in inputSTR:
-            resultDICT["symptom"] = "眼"
+            resultDICT["symptom"] = "眼睛"
     
     if utterance == "[我]看不到[路]":
         # args [我, 路]
         if "看" in inputSTR:
-            resultDICT["symptom"] = "眼"        
+            resultDICT["symptom"] = "眼睛"        
     if utterance == "[我][晚上]看不到[路]":
         # args [我, 晚上, 路] 
         if "看" in inputSTR and ("晚上" in inputSTR or "早上" in inputSTR or "清晨" in inputSTR or "中午" in inputSTR, "半夜" in inputSTR):
-            resultDICT["symptom"] = "眼"        
+            resultDICT["symptom"] = "眼睛"        
     if utterance == "[我][晚上]看不見[路]":
         # args [我, 晚上, 路] 
         if "看" in inputSTR:
-            resultDICT["symptom"] = "眼"        
+            resultDICT["symptom"] = "眼睛"        
     if utterance == "[我]看不見[路]":
         # args [我, 路] 
         if "看" in inputSTR and ("晚上" in inputSTR or "早上" in inputSTR or "清晨" in inputSTR or "中午" in inputSTR, "半夜" in inputSTR):
-            resultDICT["symptom"] = "眼"  
+            resultDICT["symptom"] = "眼睛"  
     if utterance == "[我]中彈了":
         # args [我]
         if "中彈" in inputSTR:
@@ -384,4 +398,13 @@ def getResult(inputSTR, utterance, args, resultDICT):
             resultDICT["symptom"] = "整形外"
         if (args[0] == "手" or args[0]== "腳") and "被打斷" in inputSTR:
             resultDICT["symptom"] = "骨"
+    if utterance == "[我]長雞眼了":
+        # args [我]
+        if "雞眼" in inputSTR: 
+            resultDICT["symptom"] = "皮膚"
+    if utterance == "[我]被[狗狗]咬":
+        # args [我, 狗狗]
+        if args[1] == ["狗", "狗狗", "貓", "鳥", "狼"] and ("抓" in inputSTR or "咬" in inputSTR or "啄" in inputSTR):
+            resultDICT["symptom"] = "感染"
+    
     return resultDICT
