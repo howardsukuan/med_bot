@@ -27,10 +27,12 @@
 3. Ref：這個資料夾是開發者需要用到的，裡面是已經設定好的LOKI Ref檔案 (LOKI為卓騰科技公司開發的可以用來設計聊天機器人的工具) 
 
 # <h1 id="First">2. 使用者說明</h1>
-1. 安裝Discord
-2. 安裝Line
+本機器人可於以下兩平台執行
+1. [Discord](#Fifth)
+2. [LINE](#Sixth)
 
-## 使用Discord: 步驟解說
+----
+## <h2 id="Fifth">使用Discord: 步驟解說</h1>
 1. 安裝Discord
    請到以下連結下載Discord: https://discord.com/
    
@@ -45,9 +47,11 @@
   
   ![喉嚨痛](https://upload.cc/i1/2021/03/05/Z3qtp0.png)
 
-## 使用Line: 步驟解說
-1. 安裝Line
-   請到以下連結下載Line: https://line.me/zh-hant/
+---
+
+## <h2 id="Sixth">使用LINE: 步驟解說</h1>
+1. 安裝LINE
+   請到以下連結下載LINE: https://line.me/zh-hant/
    
 2. 下載完成後請申請帳號
    
@@ -81,22 +85,15 @@
 4. 在Basic setting 中可以找到您的 LINE secret，請貼到 Line > line_app 中 LINE secret 地方
 5. 在Messaging API 中可以到到您的 LINE token，請貼到 Line > line_app 中 LINE token 地方
 
-# <h1 id="Fourth">4. 文本訓練方式</h1>
-4. 在Basic setting 中可以找到您的 LINE secret，請貼到 Line_BOT > line_app 中 LINE secret 地方
-5. 在Messaging API 中可以到到您的 LINE token，請貼到 Line_BOT > line_app 中 LINE token 地方
-
 ## Discord Portal 使用說明
 1. 請至 Discord Portal (https://discord.com/login?redirect_to=%2Fdevelopers) ，使用您的Discord 中帳號登入
 2. 看到右上角，按下 new application 
 3. 填入您的Discord Bot 名字 
 4. 看到左邊的 OAuth2，點下去可以看到 SCOPE 中選 BOT
-
 5. 在OAuth2中的 BOT PERMISSION 點全部
 6. 複製 bot 的內容  
-----
-# 4. 文本訓練方式
 
-## 訓練文本
+## # <h1 id="Fourth">4. 文本訓練方式</h1>
 1. 我們是參考以下網站
     1) 衛生福利部台北醫院就醫指南 https://www.tph.mohw.gov.tw/?aid=12
     2) 臺大醫院 該看哪一科 https://www.ntuh.gov.tw/ntuh/Fpage.action?muid=70&fid=2972
