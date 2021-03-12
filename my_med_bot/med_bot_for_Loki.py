@@ -259,7 +259,7 @@ def Result(inputSTR):
     dep=FindDepartment(inputSTR)
     actionLIST = ["咬", "抓", "啄"]
     if any(other in inputSTR and (action not in inputSTR for action in actionLIST) for other in otherLIST):
-        responseDICT = {"msg": "請去{}\n12歲以下孩童請去小兒科".format(dep)} 
+        responseDICT = {"msg": "你確定是人類嗎？ 目前只有建制人的醫療分科\n如果真的是人類請去{}\n12歲以下孩童請去小兒科".format(dep)}
 #    if any(other in inputSTR for other in otherLIST):
 #        responseDICT = {"msg": "你確定是人類嗎？ 目前只有建制人的醫療分科\n如果真的是人類請去{}\n12歲以下孩童請去小兒科".format(dep)}
 #   if any(other in inputSTR and "咬" not in inputSTR for other in otherLIST):
