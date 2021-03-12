@@ -269,6 +269,6 @@ def Result(inputSTR):
         
     
 if __name__ == "__main__":
-    inputSTR = ""
+    inputSTR = "我被狗咬"
     print(runLoki([inputSTR ]))
     print(Result(inputSTR))
