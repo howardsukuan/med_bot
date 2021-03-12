@@ -75,7 +75,7 @@
 <img src="https://upload.cc/i1/2021/03/12/3KDYbW.png" width="50%" height="50%" />
 
 ## 註冊LINE DEVELOPER 使用說明
-1. 請至 LINE DEVELOPER (https://developers.line.biz/zh-hant/)，以您的Line 帳號登入
+1. 請至 LINE DEVELOPER (https://developers.line.biz/zh-hant/) ，以您的Line帳號登入
 2. 登入之後，按product，選擇 Message Api 
 3. create api 這個畫面中，填入必要內容
 4. 在Basic setting 中可以找到您的 LINE secret，請貼到 Line > line_app 中 LINE secret 地方
