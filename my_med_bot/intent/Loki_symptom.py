@@ -410,4 +410,8 @@ def getResult(inputSTR, utterance, args, resultDICT):
         # args [我, 貓] 
         if ("狗狗" == args[1] or "狗" == args[1] or "貓" in args[1] or "鳥" in args[1]) and ("咬" in inputSTR or "抓" in inputSTR or "啄" in inputSTR):
             resultDICT["symptom"] = "感染"
+    if utterance == "[我]被[鳥]啄":
+        # args [我, 鳥] 
+        if "鳥" == args[1] or "烏鴉" == args[1] or "鴿子" == args[1] or "鵝" == args[1]:
+            resultDICT["symptom"] = "感染"
     return resultDICT
