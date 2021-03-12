@@ -15,7 +15,7 @@
 
 3. create api 中設定以下5項必要資訊，了解LINE Official Account Terms of Use 和 LINE official Account API Terms of Use 之後，點下Create 
       
-      - Provider: 請選擇 create a new provider，然後下面的名字可以自己取名 (以本圖為例，取作 MED_BOT) 
+    - Provider: 請選擇 create a new provider，然後下面的名字可以自己取名 (以本圖為例，取作 MED_BOT) 
    
 <img src="https://upload.cc/i1/2021/03/12/s3jnXt.png" height="50%" />
 
@@ -54,11 +54,11 @@
 本程式用於連接 `med_bot_for_Loki.py`與line的聊天機器人。
 
 ### `line_sdk.py`
-本程式置放LINE chatbot 需要的內容
+本程式置放LINE chatbot 需要的程式必要內容
 
 
 ### `med_bot_for_Loki.py`
-本成語用於串接Loki的intents，主要有三個functions:`RunLoki`、`FindDepartment`以及`Result`，`RunLoki`功能為與線上Loki進行連結並偵測意圖，也會進一步回傳使用者標記的參數。`FindDepartment`功能為將`RunLoki`回傳的參數與`reference.py`裡面之字典檔進行比對，以找出病症或身體部位所對應知科別。`Result`則將最後的結果存成另一個字典檔，並於`med_bot_for_discord.py`中被imported。
+本程式用於串接Loki的intents，主要有三個functions:`RunLoki`、`FindDepartment`以及`Result`，`RunLoki`功能為與線上Loki進行連結並偵測意圖，也會進一步回傳使用者標記的參數。`FindDepartment`功能為將`RunLoki`回傳的參數與`reference.py`裡面之字典檔進行比對，以找出病症或身體部位所對應知科別。`Result`則將最後的結果存成另一個字典檔，並於`med_bot_for_discord.py`中被imported。
 
 ### `reference.py`
 本檔案儲存所有在前述兩張script所需的LIST與DICT。
