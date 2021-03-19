@@ -51,13 +51,9 @@ import logging
 logging.basicConfig(level=logging.DEBUG)
 
 try:
-    from intent import Loki_Emergency
-    from intent import Loki_Gender
     from intent import Loki_body_part
     from intent import Loki_symptom
 except:
-    from .intent import Loki_Emergency
-    from .intent import Loki_Gender
     from .intent import Loki_body_part
     from .intent import Loki_symptom
 
@@ -271,5 +267,5 @@ def Result(inputSTR):
         
     
 if __name__ == "__main__":
-    inputSTR = "我被鳥啄"
+    inputSTR = "我心情鬱悶"
     print(Result(inputSTR))
