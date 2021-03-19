@@ -37,7 +37,7 @@
 
 例如 : LINE_ACCESS_TOKEN   = "your token"
 
-6. 這邊需要一個Server 放在LINE DEVELOPER裡面，這邊可以參考 Heroku，如果已經可以把這個聊天機器人放入那個server，就把這個server 的網誌放在 Messaging API 下 WebHook 中
+6. 這邊需要一個Server 放在LINE DEVELOPER裡面，這邊可以參考 Heroku，如果已經可以把這個聊天機器人放入那個server，就把這個server 的網誌放在 Messaging API 下 WebHook 中，建議參考書籍 LINE Bot by Python 全攻略 (作者饒孟桓)
 
 <img src="https://upload.cc/i1/2021/03/12/rb2x0V.png" width="50%" height="50%" />
 
@@ -62,4 +62,7 @@
 
 ### `reference.py`
 本檔案儲存所有在前述兩張script所需的LIST與DICT。
+
+### 其他檔案
+如 'Procfile` `requirements.txt` `runtime.txt` 檔案夾 `templates` 和架構heroku 相關，需要這幾個檔案才可以部屬至heroku 
 
