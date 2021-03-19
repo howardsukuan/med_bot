@@ -14,9 +14,15 @@ from account_info import accountInfoDICT
 LINE_ACCESS_TOKEN   = accountInfoDICT["LINE_ACCESS_TOKEN"]
 LINE_CHANNEL_SECRET = accountInfoDICT["LINE_CHANNEL_SECRET"]
 
-app = Flask(__name__)
+from flask import render_template
 
-@app.route("/Robin/", methods=["GET", "POST"])
+app = Flask(__name__, template_folder="templates")
+#app = Flask(__name__)
+@app.route("/")
+def home():
+    return render_template("index.html")
+
+@app.route("/callback", methods=["GET", "POST"])
 def webhook():
     # GET #知道網頁
     if request.method == "GET":
@@ -49,4 +55,4 @@ def webhook():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8001)
+    app.run()

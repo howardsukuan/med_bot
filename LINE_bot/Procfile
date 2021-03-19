@@ -1,2 +1,2 @@
-web: gunicorn line_app_test:app --preload
+web: gunicorn app_echo:app --preload
 clock: python clock.py
